@@ -18,6 +18,7 @@ namespace StealthOfTomorrow
 		
 		TextureInfo tiFlag;
 		Texture2D 	textureFlag;
+		Character 	player1;
 		
 		public GameScene (string text, ImageColor textcolor, int textSize)
 		{
@@ -56,6 +57,10 @@ namespace StealthOfTomorrow
 			
 			Scheduler.Instance.ScheduleUpdateForTarget(this,0,false);
 			this.RegisterDisposeOnExitRecursive();
+			
+			
+			//Player Code
+			player1 = new Character(this,"/Application/Assets/bird1.png",100,100);
 		}
 		
 		public override void OnEnter()
@@ -64,6 +69,7 @@ namespace StealthOfTomorrow
 		
 		public override void Update (float dt)
 		{
+			player1.Update(dt);
 			base.Update (dt);
 			
 			
