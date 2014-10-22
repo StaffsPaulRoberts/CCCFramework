@@ -43,6 +43,7 @@
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="GameScene.cs" />
+    <Compile Include="Character.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -54,8 +55,10 @@
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Managers\" />
+    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="saltire.jpg" />
+    <Content Include="Assets\bird1.png" />
   </ItemGroup>
 </Project>
