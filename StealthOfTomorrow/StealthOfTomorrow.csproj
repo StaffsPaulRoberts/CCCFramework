@@ -43,7 +43,6 @@
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="GameScene.cs" />
-    <Compile Include="Character.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
