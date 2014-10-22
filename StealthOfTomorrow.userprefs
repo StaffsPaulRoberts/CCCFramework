@@ -1,0 +1,38 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="StealthOfTomorrow\GameScene.cs">
+    <Files>
+      <File FileName="StealthOfTomorrow\AppMain.cs" Line="33" Column="3" />
+      <File FileName="StealthOfTomorrow\DebugOverlay.cs" Line="84" Column="4" />
+      <File FileName="StealthOfTomorrow\SplashScreen.cs" Line="9" Column="28" />
+      <File FileName="StealthOfTomorrow\Managers\FontManager.cs" Line="8" Column="22" />
+      <File FileName="StealthOfTomorrow\Managers\SceneManager.cs" Line="40" Column="5" />
+      <File FileName="StealthOfTomorrow\app.xml" Line="11" Column="1" />
+      <File FileName="StealthOfTomorrow\GameScene.cs" Line="48" Column="4" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="StealthOfTomorrow" expanded="True">
+            <Node name="Managers" expanded="True" />
+            <Node name="shaders" expanded="True">
+              <Node name="Simple.vcg" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>crossFade</Value>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
