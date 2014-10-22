@@ -1,5 +1,6 @@
 using System;
 
+
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Imaging;
@@ -29,8 +30,8 @@ namespace StealthOfTomorrow
 		private int energy;
 		private AttackType attackType;
 		
-		private GamePadData gamePadData;
-		
+		private GamePadData gamePadData,gamePadData2;
+		private bool isJumping;
 		
 		public Character (Scene scene,string path,int health, int energy)
 		{
@@ -41,10 +42,11 @@ namespace StealthOfTomorrow
 			sprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width/2,
 			                              Director.Instance.GL.Context.GetViewport().Height /2);
 			
+			sprite.CenterSprite();
 			
-			
-			this.health = health;
-			this.energy = energy;
+			isJumping = false;
+			//this.health = health;
+			//this.energy = energy;
 			
 			scene.AddChild(sprite);
 		}
@@ -79,25 +81,52 @@ namespace StealthOfTomorrow
 			
 			int speed = 4;
 			
-			if((gamePadData.Buttons & GamePadButtons.Left) != 0)
+			if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
 			{
+			
 			sprite.Position += new Vector2(-1 * speed,0);
 			sprite.Scale = new Vector2(-1,1);	
 				
 			}
-			if((gamePadData.Buttons & GamePadButtons.Right) != 0)
+			else if((gamePadData.Buttons & GamePadButtons.Right) != 0)
 			{
+		
 			sprite.Position += new Vector2(1 * speed,0);
 				sprite.Scale = new Vector2(1,1);	
 			}
-			if((gamePadData.Buttons & GamePadButtons.Up) != 0)
+			else if((gamePadData.Buttons & GamePadButtons.Up) != 0)
 			{
+				
 			sprite.Position += new Vector2(0,1 * speed);	
 			}
-			if((gamePadData.Buttons & GamePadButtons.Down) != 0)
+			else if((gamePadData.Buttons & GamePadButtons.Down) != 0)
 			{
+				
 			sprite.Position += new Vector2(0,-1 * speed);	
 			}
+			
+			if(!isJumping)
+			{
+				//if((gamePadData.Buttons & GamePadButtons.Cross) != 0 && Input2.GamePad0.Cross.)		
+				if(Input2.GamePad0.Cross.Press)
+				{
+					isJumping = true;
+					//Console.WriteLine("isJumping = " + isJumping.ToString());/
+					Console.WriteLine("Jumped");
+					
+				}
+				
+			}
+			
+			if(Input2.GamePad0.Cross.Release)
+			{
+				isJumping = false;
+				if(isJumping)
+					Console.WriteLine("Not Jumped");
+			}
+//			
+			
+			
 		}
 		
 		

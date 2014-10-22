@@ -28,6 +28,7 @@ namespace StealthOfTomorrow
 		#endregion
 		private float elapsedTime = 0;
 		
+		private bool transitionStarted;
 		public DebugOverlay ()
 		{
 			this.Camera.SetViewFromViewport();	// Check documentation - defines a 2D view that matches the viewport(viewport == display region, in our case, the vita screen)
@@ -87,11 +88,12 @@ namespace StealthOfTomorrow
 		{
 			base.Update (dt);
 			
-			var touches = Touch.GetData(0);
-			if(touches.Count > 0)
+			//var touches = Touch.GetData(0);
+			if(Input2.GamePad0.Start.Press && !transitionStarted)
 			{
+				transitionStarted = true;
 				Touch.GetData(0).Clear();
-				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 100.0f);
+				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
 			}
 		}
 	}
