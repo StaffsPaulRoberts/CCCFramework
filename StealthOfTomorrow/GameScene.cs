@@ -20,6 +20,8 @@ namespace StealthOfTomorrow
 		Texture2D 	textureFlag;
 		Character 	player1;
 		
+		BaseLevel 	baseLevel;
+		
 		public GameScene (string text, ImageColor textcolor, int textSize)
 		{
 			_text = text;
@@ -58,6 +60,8 @@ namespace StealthOfTomorrow
 			Scheduler.Instance.ScheduleUpdateForTarget(this,0,false);
 			this.RegisterDisposeOnExitRecursive();
 			
+			//Base Level Class code
+			baseLevel = new BaseLevel(this);
 			
 			//Player Code
 			player1 = new Character(this,"/Application/Assets/bird1.png",4,100,100);
