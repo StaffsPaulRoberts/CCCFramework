@@ -48,6 +48,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="Managers\AnimationManager.cs" />
     <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="Managers\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
