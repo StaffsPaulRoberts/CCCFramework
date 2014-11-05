@@ -63,6 +63,9 @@ namespace StealthOfTomorrow
 			player1 = new Character(this,"/Application/Assets/bird1.png",100,100);
 			Console.WriteLine("Created Player");
 			
+			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/testAnim.png", new Vector2i(4, 1), this);
+			AnimationManager.Instance.ActivateAnimation(testSprite);
+			
 			// Example (test) player UI
 			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(), null);
 		}
