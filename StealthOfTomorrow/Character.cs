@@ -33,6 +33,9 @@ namespace StealthOfTomorrow
 		private GamePadData gamePadData,gamePadData2;
 		private bool isJumping;
 		
+		public int Health{get {return this.health;}}
+		public int Energy{get {return this.energy;}}
+		
 		public Character (Scene scene,string path,int health, int energy)
 		{
 			
@@ -79,9 +82,28 @@ namespace StealthOfTomorrow
 		{
 			 gamePadData = GamePad.GetData(0);
 			
+			Move();
+			
+			
+//			
+			
+			
+		}
+		
+		private void Move()
+		{
 			int speed = 4;
 			
-			if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
+			if((gamePadData.Buttons & GamePadButtons.Left) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
+			{
+				Jump("Left");
+			}
+			else if((gamePadData.Buttons & GamePadButtons.Right) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
+			{
+				Jump("Right");
+			}
+			
+			else if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
 			{
 			
 			sprite.Position += new Vector2(-1 * speed,0);
@@ -105,28 +127,26 @@ namespace StealthOfTomorrow
 			sprite.Position += new Vector2(0,-1 * speed);	
 			}
 			
-			if(!isJumping)
-			{
-				//if((gamePadData.Buttons & GamePadButtons.Cross) != 0 && Input2.GamePad0.Cross.)		
-				if(Input2.GamePad0.Cross.Press)
-				{
-					isJumping = true;
-					//Console.WriteLine("isJumping = " + isJumping.ToString());/
-					Console.WriteLine("Jumped");
-					
-				}
-				
-			}
-			
-			if(Input2.GamePad0.Cross.Release)
-			{
-				isJumping = false;
-				if(isJumping)
-					Console.WriteLine("Not Jumped");
-			}
-//			
-			
-			
+		}
+		
+		private void Jump(string dir)
+		{
+//			if(!this.isJumping)
+//			{
+//				this.isJumping = true;
+//				switch (dir) 
+//				{
+//				case "Left":
+//					Console.WriteLine("Jumping Left");
+//					sprite.Position += new Vector2(0,1*speed);
+//					break;
+//				case "Right":
+//					Console.WriteLine("Jumping Right");
+//					break;
+//				default:
+//					break;
+//				}
+//			}
 		}
 		
 		
