@@ -40,9 +40,6 @@ namespace StealthOfTomorrow
 			
 			DebugOverlay scnDebug = new DebugOverlay();	// Create our new Debug Scene			
 			
-			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/testAnim.png", new Vector2i(4, 1), scnDebug);
-			AnimationManager.Instance.ActivateAnimation(testSprite);
-			
 			UISystem.Initialize(Director.Instance.GL.Context);
 			UISystem.SetScene(new Sce.PlayStation.HighLevel.UI.Scene(), null);
 			

@@ -32,7 +32,9 @@ namespace StealthOfTomorrow
 			Texture2D texture = new Texture2D(filename, false);
 			TextureInfo info = new TextureInfo(texture, numTiles);
 			SpriteTile tile = new SpriteTile(info);
-			AnimatedSprite newSprite = new AnimatedSprite(tile);
+			tile.Quad.S = new Vector2(info.TextureSizef.X / numTiles.X, info.TextureSizef.Y);
+			tile.CenterSprite();
+			AnimatedSprite newSprite = new AnimatedSprite(tile, numTiles.X);
 			m_animations.Add(newSprite);
 			return newSprite;
 		}
@@ -41,22 +43,19 @@ namespace StealthOfTomorrow
 		{
 			m_activeAnimations.Add(toActivate);
 			toActivate.active = true;
-			scene.AddChild(toActivate.spriteSheet);
+			scene.AddChild(toActivate.sprite);
 		}
 		
 		public void DeactivateAnimation(AnimatedSprite toDeactivate)
 		{
 			m_activeAnimations.Remove(toDeactivate);
 			toDeactivate.active = false;
-			scene.RemoveChild(toDeactivate.spriteSheet, false);
+			scene.RemoveChild(toDeactivate.sprite, false);
 		}
 		
 		public void UpdateAnimations()
 		{
-			foreach(AnimatedSprite a in m_activeAnimations)
-			{
-				a.Update();
-			}
+			foreach(AnimatedSprite a in m_activeAnimations) a.Update();
 		}
 		
 	}
