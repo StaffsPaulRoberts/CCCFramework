@@ -46,6 +46,8 @@
     <Compile Include="GameScene.cs" />
     <Compile Include="GameHUD.cs" />
     <Compile Include="Character.cs" />
+    <Compile Include="Managers\AnimationManager.cs" />
+    <Compile Include="AnimatedSprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
