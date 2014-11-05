@@ -64,9 +64,10 @@
   <ItemGroup>
     <Content Include="saltire.jpg" />
     <Content Include="Assets\bird1.png" />
-    <Content Include="Assets\health_bar.png" />
-    <Content Include="Assets\energy_bar.png" />
-    <Content Include="Assets\lives_bar.png" />
     <Content Include="testAnim.png" />
+    <Content Include="Assets\HealthGUI\EmptyBar.png" />
+    <Content Include="Assets\HealthGUI\HealthBar.png" />
+    <Content Include="Assets\HealthGUI\StaminaBar.png" />
+    <Content Include="Assets\HealthGUI\Lives.png" />
   </ItemGroup>
 </Project>

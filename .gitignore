@@ -37,7 +37,7 @@ Temporary Items
 .apdisk
 
 # Project specific
-assets/sources/
+StealthOfTomorrow/Assets/sources/
 StealthOfTomorrow/bin/
 StealthOfTomorrow/obj/
 StealthOfTomorrow/StealthOfTomorrow.pidb
