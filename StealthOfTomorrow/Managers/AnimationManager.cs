@@ -43,22 +43,19 @@ namespace StealthOfTomorrow
 		{
 			m_activeAnimations.Add(toActivate);
 			toActivate.active = true;
-			scene.AddChild(toActivate.spriteSheet);
+			scene.AddChild(toActivate.sprite);
 		}
 		
 		public void DeactivateAnimation(AnimatedSprite toDeactivate)
 		{
 			m_activeAnimations.Remove(toDeactivate);
 			toDeactivate.active = false;
-			scene.RemoveChild(toDeactivate.spriteSheet, false);
+			scene.RemoveChild(toDeactivate.sprite, false);
 		}
 		
 		public void UpdateAnimations()
 		{
-			foreach(AnimatedSprite a in m_activeAnimations)
-			{
-				a.Update();
-			}
+			foreach(AnimatedSprite a in m_activeAnimations) a.Update();
 		}
 		
 	}

@@ -9,14 +9,13 @@ namespace StealthOfTomorrow
 {
 	public class AnimatedSprite
 	{
-		public AnimatedSprite (SpriteTile tile, int tiles)
+		public AnimatedSprite (SpriteTile tile, int tileAmount)
 		{
-			spriteSheet = tile;
-			numTiles = tiles;
-			spriteSheet.Position = new Vector2(50.0f, 50.0f);
+			sprite = tile;
+			numTiles = tileAmount;
 		}
 		
-		public SpriteTile spriteSheet;
+		public SpriteTile sprite;
 		public bool active;
 		private int currIndex = 0;
 		private int numTiles;
@@ -26,8 +25,12 @@ namespace StealthOfTomorrow
 			if(!active) return;
 			currIndex++;
 			if(currIndex >= numTiles) currIndex = 0;
-			spriteSheet.TileIndex1D = currIndex;
-			spriteSheet.DebugDrawTransform();
+			sprite.TileIndex1D = currIndex;
+		}
+		
+		public void SetPosition(int x, int y)
+		{
+			sprite.Position = new Vector2(x, y);
 		}
 		
 	}
