@@ -60,7 +60,7 @@ namespace StealthOfTomorrow
 			
 			
 			//Player Code
-			player1 = new Character(this,"/Application/Assets/bird1.png",100,100);
+			player1 = new Character(this,"/Application/Assets/bird1.png",4,100,100);
 			Console.WriteLine("Created Player");
 			
 			// Animated Sprite loading + activation
