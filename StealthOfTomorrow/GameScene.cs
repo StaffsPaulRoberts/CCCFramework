@@ -63,13 +63,15 @@ namespace StealthOfTomorrow
 			//Base Level Class code
 			baseLevel = new BaseLevel(this);
 			
-			//Player Code
-			player1 = new Character(this,"/Application/Assets/bird1.png",4,100,100);
-			Console.WriteLine("Created Player");
+			
 			
 			// Animated Sprite loading + activation
 			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/testAnim.png", new Vector2i(4, 1), this);
 			AnimationManager.Instance.ActivateAnimation(testSprite);
+			
+			//Player Code
+			player1 = new Character(this,testSprite,4,100,100);
+			Console.WriteLine("Created Player");
 			
 			// Example (test) player UI
 			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(player1), null);
