@@ -62,14 +62,15 @@
   <ItemGroup>
     <Folder Include="Managers\" />
     <Folder Include="Assets\" />
+    <Folder Include="Assets\Animations\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="saltire.jpg" />
     <Content Include="Assets\bird1.png" />
-    <Content Include="testAnim.png" />
     <Content Include="Assets\HealthGUI\EmptyBar.png" />
     <Content Include="Assets\HealthGUI\HealthBar.png" />
     <Content Include="Assets\HealthGUI\StaminaBar.png" />
     <Content Include="Assets\HealthGUI\Lives.png" />
+    <Content Include="Assets\Animations\testAnim.png" />
   </ItemGroup>
 </Project>

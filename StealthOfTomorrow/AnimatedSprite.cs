@@ -19,6 +19,7 @@ namespace StealthOfTomorrow
 		public bool active;
 		private int currIndex = 0;
 		private int numTiles;
+		public Vector2 position { get { return sprite.Position; } set { sprite.Position = value; } }
 		
 		public void Update()
 		{
@@ -27,11 +28,5 @@ namespace StealthOfTomorrow
 			if(currIndex >= numTiles) currIndex = 0;
 			sprite.TileIndex1D = currIndex;
 		}
-		
-		public void SetPosition(int x, int y)
-		{
-			sprite.Position = new Vector2(x, y);
-		}
-		
 	}
 }
