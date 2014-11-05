@@ -68,7 +68,7 @@ namespace StealthOfTomorrow
 			AnimationManager.Instance.ActivateAnimation(testSprite);
 			
 			// Example (test) player UI
-			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(), null);
+			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(player1), null);
 		}
 		
 		public override void OnEnter()

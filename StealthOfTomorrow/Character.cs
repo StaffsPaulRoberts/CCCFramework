@@ -39,7 +39,7 @@ namespace StealthOfTomorrow
 		private bool isFalling = false;
 		public int Health{get {return this.health;}}
 		public int Energy{get {return this.energy;}}
-		
+		public int Lives{get { return this.lives;}}
 		
 		
 		public Character (Scene scene,string path,int lives,int health, int energy)
