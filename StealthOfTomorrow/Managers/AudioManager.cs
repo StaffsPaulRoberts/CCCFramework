@@ -98,12 +98,13 @@ namespace StealthOfTomorrow
 			if (soundList.ContainsKey(key))
 			{
 				//Returns an instance of the SoundPlayer to play this sound data NOTE: is null until here
-				soundPlayers.Add(soundList[key].CreatePlayer());
+				SoundPlayer soundPlayer = soundList[key].CreatePlayer();
 				soundPlayer.Volume = volume;
 				soundPlayer.Loop = isLooping;
 				soundPlayer.PlaybackRate = playbackRate;
 				soundPlayer.Pan = pan;
 				soundPlayer.Play();
+				soundPlayers.Add(soundPlayer);
 				return true;
 			}
 			else
@@ -156,18 +157,19 @@ namespace StealthOfTomorrow
 			}
 		}
 		
+		//Checks to see if there are any sounds playing 
 		public static bool IsSoundPlaying()
 		{
-			if (soundPlayer != null)
+			if (soundPlayers.Count != 0)
 			{
-				if (soundPlayer.Status == SoundStatus.Stopped)
+				for (int i = 0; i < soundPlayers.Count; i++)
 				{
-					return false;	
+					if (soundPlayers[i].Status == SoundStatus.Playing)
+					{
+						return true;	
+					}
 				}
-				else 
-				{
-					return true;	
-				}
+				return false;
 			}
 			else 
 			{
