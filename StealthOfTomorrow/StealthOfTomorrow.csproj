@@ -35,6 +35,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Sce.PlayStation.Core" />
     <Reference Include="Sce.PlayStation.HighLevel.GameEngine2D" />
+    <Reference Include="Sce.PlayStation.HighLevel.UI" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppMain.cs" />
@@ -43,6 +44,8 @@
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="GameScene.cs" />
+    <Compile Include="GameHUD.cs" />
+    <Compile Include="Character.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -59,5 +62,8 @@
   <ItemGroup>
     <Content Include="saltire.jpg" />
     <Content Include="Assets\bird1.png" />
+    <Content Include="Assets\health_bar.png" />
+    <Content Include="Assets\energy_bar.png" />
+    <Content Include="Assets\lives_bar.png" />
   </ItemGroup>
 </Project>
