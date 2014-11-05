@@ -7,16 +7,18 @@ using Sce.PlayStation.Core.Input;
 
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
+using Sce.PlayStation.HighLevel.UI;
 
 namespace StealthOfTomorrow
 {
-	public class OptionsScreen : Scene
+	public class OptionsScreen : Sce.PlayStation.HighLevel.GameEngine2D.Scene
 	{
 		TextureInfo tiBG;
 		Texture2D texBG;
 		SpriteUV spriteBG;
+		OptionsUI.OptionsScene uiScene;
 		
-		public OptionsScene ()
+		public OptionsScreen ()
 		{
 			var screenSize = Director.Instance.GL.Context.GetViewport();
 			this.Camera.SetViewFromViewport();
@@ -30,12 +32,16 @@ namespace StealthOfTomorrow
 			
 			this.AddChild(spriteBG);
 			
+			/*VVV - This UIComposer Implementation should work, but a NullReferenceException is causing it to fail. - VVV*/
+			uiScene = new OptionsUI.OptionsScene();
+			UISystem.SetScene(uiScene);
+			
 			Scheduler.Instance.ScheduleUpdateForTarget(this,0,false);
 			this.RegisterDisposeOnExitRecursive();
 			
 		}
 		
-		~OptionsScene()
+		~OptionsScreen()
 		{
 			tiBG.Dispose();
 			texBG.Dispose();
@@ -49,19 +55,6 @@ namespace StealthOfTomorrow
 		public override void Update (float dt)
 		{
 			base.Update (dt);
-			
-			Vector2 position = spriteBG.Position;
-			
-			if (Input2.GamePad0.Up.Down)
-			{
-				this.Scale += dt;
-			}
-			if (Input2.GamePad0.Down.Down)
-			{
-				this.Scale -= dt;
-			}
-			
-			spriteBG.Position = position;
 		}
 	}
 }

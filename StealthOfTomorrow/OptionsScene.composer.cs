@@ -11,15 +11,15 @@ namespace OptionsUI
 {
     partial class OptionsScene
     {
-        Slider musicVolSlider;
-        Slider soundVolSlider;
-        Slider BrightnessSlider;
-        Slider ContrastSlider;
+        public Slider musicVolSlider;
+        public Slider soundVolSlider;
+        public Slider BrightnessSlider;
+        public Slider ContrastSlider;
         Label MusicLabel;
         Label SoundLabel;
         Label BrightnessLabel;
         Label Contrast;
-        Button MenuButton;
+        public Button MenuButton;
 
         private void InitializeWidget()
         {
@@ -263,6 +263,5 @@ namespace OptionsUI
                     break;
             }
         }
-
     }
 }

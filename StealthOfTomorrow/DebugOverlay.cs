@@ -93,7 +93,7 @@ namespace StealthOfTomorrow
 			{
 				transitionStarted = true;
 				Touch.GetData(0).Clear();
-				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+				SceneManager.Instance.SendSceneToFront(new OptionsScreen(), SceneManager.SceneTransitionType.CrossFade, 3.0f);
 			}
 		}
 	}

@@ -46,10 +46,10 @@
     <Compile Include="GameScene.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Character.cs" />
-    <Compile Include="OptionsScene.composer.cs" />
-    <Compile Include="OptionsScene.cs" />
     <Compile Include="UIStringTable.cs" />
     <Compile Include="OptionsScreen.cs" />
+    <Compile Include="OptionsScene.composer.cs" />
+    <Compile Include="OptionsScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
