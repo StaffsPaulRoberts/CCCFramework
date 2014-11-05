@@ -5,9 +5,6 @@ using Sce.PlayStation.Core.Audio;
 
 namespace StealthOfTomorrow
 {
-	/*
-	 * Only currently supports one sound playing at one time
-	 */
 	public static class AudioManager
 	{
 		//Contains all the sounds that are currently loaded
