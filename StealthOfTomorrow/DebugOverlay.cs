@@ -89,7 +89,7 @@ namespace StealthOfTomorrow
 			base.Update (dt);
 			
 			//var touches = Touch.GetData(0);
-			if(Input2.GamePad0.Start.Press && !transitionStarted)
+			if(Input2.GamePad0.Start.Press && !transitionStarted || Touch.GetData(0).Count > 0 && !transitionStarted)
 			{
 				transitionStarted = true;
 				Touch.GetData(0).Clear();

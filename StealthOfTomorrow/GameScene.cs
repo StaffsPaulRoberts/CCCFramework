@@ -61,6 +61,7 @@ namespace StealthOfTomorrow
 			
 			//Player Code
 			player1 = new Character(this,"/Application/Assets/bird1.png",100,100);
+			Console.WriteLine("Created Player");
 			
 			// Example (test) player UI
 			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(), null);
