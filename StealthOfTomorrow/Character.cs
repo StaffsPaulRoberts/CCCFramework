@@ -80,30 +80,30 @@ namespace StealthOfTomorrow
 			 gamePadData = GamePad.GetData(0);
 			
 			int speed = 4;
+			Vector2 direction = Vector2.Zero;
 			
 			if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
 			{
-			
-			sprite.Position += new Vector2(-1 * speed,0);
-			sprite.Scale = new Vector2(-1,1);	
-				
+				direction += new Vector2(-1,0);
+				sprite.Scale = new Vector2(-1,1);
 			}
-			else if((gamePadData.Buttons & GamePadButtons.Right) != 0)
+			if((gamePadData.Buttons & GamePadButtons.Right) != 0)
 			{
-		
-			sprite.Position += new Vector2(1 * speed,0);
+				direction += new Vector2(1,0);
 				sprite.Scale = new Vector2(1,1);	
 			}
-			else if((gamePadData.Buttons & GamePadButtons.Up) != 0)
+			if((gamePadData.Buttons & GamePadButtons.Up) != 0)
 			{
-				
-			sprite.Position += new Vector2(0,1 * speed);	
+				direction += new Vector2(0,1);	
 			}
-			else if((gamePadData.Buttons & GamePadButtons.Down) != 0)
+			if((gamePadData.Buttons & GamePadButtons.Down) != 0)
 			{
-				
-			sprite.Position += new Vector2(0,-1 * speed);	
+				direction += new Vector2(0,-1);	
 			}
+			
+			direction.Normalize();
+			
+			sprite.Position += direction * speed;
 			
 			if(!isJumping)
 			{
