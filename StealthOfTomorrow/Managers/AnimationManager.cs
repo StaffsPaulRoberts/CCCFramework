@@ -24,9 +24,9 @@ namespace StealthOfTomorrow
 		
 		private static List<AnimatedSprite> m_animations = new List<AnimatedSprite>();
 		private static List<AnimatedSprite> m_activeAnimations = new List<AnimatedSprite>();
-		private GameScene scene;
+		private Scene scene;
 		
-		public AnimatedSprite LoadAnimation(string filename, Vector2i numTiles, GameScene toSet)
+		public AnimatedSprite LoadAnimation(string filename, Vector2i numTiles, Scene toSet)
 		{
 			scene = toSet;
 			Texture2D texture = new Texture2D(filename, false);

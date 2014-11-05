@@ -6,6 +6,7 @@ using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
+using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
 
 namespace StealthOfTomorrow
@@ -15,7 +16,6 @@ namespace StealthOfTomorrow
 		
 		public static void Main (string[] args)
 		{
-			
 			Initialize();
 
 			while (true) {
@@ -38,12 +38,13 @@ namespace StealthOfTomorrow
 		{
 			Director.Initialize(); // Initialises the GameEngine2D supplied by Sony. This will ALWAYS be done if you plan on using the 2D 
 			
+			DebugOverlay scnDebug = new DebugOverlay();	// Create our new Debug Scene			
+			
 			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/testAnim.png", new Vector2i(4, 1), scnDebug);
 			AnimationManager.Instance.ActivateAnimation(testSprite);
 			
 			UISystem.Initialize(Director.Instance.GL.Context);
 			UISystem.SetScene(new Sce.PlayStation.HighLevel.UI.Scene(), null);
-			DebugOverlay scnDebug = new DebugOverlay();	// Create our new Debug Scene			
 			
 			Director.Instance.RunWithScene(scnDebug, true);	// Tell the Director to run the scene
 		}

@@ -67,5 +67,6 @@
     <Content Include="Assets\health_bar.png" />
     <Content Include="Assets\energy_bar.png" />
     <Content Include="Assets\lives_bar.png" />
+    <Content Include="testAnim.png" />
   </ItemGroup>
 </Project>
