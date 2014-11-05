@@ -40,6 +40,6 @@ Temporary Items
 assets/sources/
 StealthOfTomorrow/bin/
 StealthOfTomorrow/obj/
-StealthOfTomorrow/*.pidb
+StealthOfTomorrow/StealthOfTomorrow.pidb
 StealthOfTomorrow.userprefs
 *.*~
