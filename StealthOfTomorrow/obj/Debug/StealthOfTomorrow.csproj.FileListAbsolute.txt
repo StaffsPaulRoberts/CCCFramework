@@ -54,3 +54,43 @@ E:\StealthOfTomorrow\StealthOfTomorrow\obj\Debug\app.exe
 E:\StealthOfTomorrow\StealthOfTomorrow\obj\Debug\app.pdb
 E:\StealthOfTomorrow\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\saltire.jpg
 E:\StealthOfTomorrow\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\saltire.jpg
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\obj\Debug\shaders\shaders\Simple.cgx
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\obj\Debug\app.exe
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\obj\Debug\app.pdb
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\obj\Debug\StealthOfTomorrow.csprojResolveAssemblyReference.cache
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\app.info
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\shaders\Simple.cgx
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\app.exe
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.Json.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.Xml.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.Runtime.Serialization.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.Core.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.ServiceModel.Web.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\System.ServiceModel.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\app.exe.mdb
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\saltire.jpg
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Assets\bird1.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Assets\health_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Assets\energy_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-unsigned\Application\Assets\lives_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\app.info
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\shaders\Simple.cgx
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\app.exe
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.Json.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.Xml.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.Runtime.Serialization.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.Core.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.ServiceModel.Web.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\System.ServiceModel.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\app.exe.mdb
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\saltire.jpg
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Assets\bird1.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Assets\health_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Assets\energy_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow-signed\Application\Assets\lives_bar.png
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\bin\Debug\StealthOfTomorrow.psdp
+C:\Users\Luis\Dropbox\Uni\Console Coding Club\CCCFramework\StealthOfTomorrow\obj\Debug\convertedpdb\app.exe.mdb
