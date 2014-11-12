@@ -50,6 +50,7 @@
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="BaseLevel.cs" />
+    <Compile Include="FrontEnd.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
