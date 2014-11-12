@@ -66,7 +66,7 @@ namespace StealthOfTomorrow
 			
 			
 			// Animated Sprite loading + activation
-			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/testAnim.png", new Vector2i(4, 1), this);
+			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/Assets/Animations/testAnim.png", new Vector2i(4, 1), this);
 			AnimationManager.Instance.ActivateAnimation(testSprite);
 			
 			//Player Code

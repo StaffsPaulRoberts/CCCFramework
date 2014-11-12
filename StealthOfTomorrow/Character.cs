@@ -55,7 +55,7 @@ namespace StealthOfTomorrow
 //			sprite.Pivot 	= new Vector2(0.5f,1.0f);
 //			sprite.CenterSprite(TRS.Local.BottomCenter);
 			this.sprite = animSprite;
-			this.sprite.SetPosition(450,250);
+			this.sprite.position = new Vector2(450,250);
 			isJumping = false;
 			this.jumpHeight = 40;
 			this.health = health;
