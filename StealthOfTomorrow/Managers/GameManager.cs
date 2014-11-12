@@ -89,8 +89,8 @@ namespace StealthOfTomorrow
 			musicVolume = 1.0f;
 			soundVolume = 1.0f;
 			
-			brightness = 1.0f;
-			contrast = 1.0f;
+			brightness = 0.0f;
+			contrast = 0.0f;
 			
 			difficulty = 1;
 			itemsOn = true;

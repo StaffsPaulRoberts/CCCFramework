@@ -2,27 +2,29 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="StealthOfTomorrow\OptionsScreen.cs">
     <Files>
-      <File FileName="StealthOfTomorrow\DebugOverlay.cs" Line="96" Column="74" />
-      <File FileName="StealthOfTomorrow\GameScene.cs" Line="1" Column="1" />
+      <File FileName="StealthOfTomorrow\DebugOverlay.cs" Line="90" Column="4" />
+      <File FileName="StealthOfTomorrow\GameScene.cs" Line="19" Column="18" />
       <File FileName="StealthOfTomorrow\Character.cs" Line="98" Column="5" />
-      <File FileName="StealthOfTomorrow\Managers\GameManager.cs" Line="27" Column="19" />
+      <File FileName="StealthOfTomorrow\Managers\GameManager.cs" Line="52" Column="1" />
       <File FileName="StealthOfTomorrow\OptionsScene.cs" Line="15" Column="1" />
-      <File FileName="StealthOfTomorrow\OptionsScene.composer.cs" Line="265" Column="10" />
-      <File FileName="StealthOfTomorrow\UIStringTable.cs" Line="8" Column="28" />
-      <File FileName="StealthOfTomorrow\OptionsScreen.cs" Line="57" Column="21" />
+      <File FileName="StealthOfTomorrow\OptionsScene.composer.cs" Line="9" Column="21" />
+      <File FileName="StealthOfTomorrow\UIStringTable.cs" Line="28" Column="18" />
+      <File FileName="StealthOfTomorrow\OptionsScreen.cs" Line="24" Column="38" />
+      <File FileName="StealthOfTomorrow\SplashScreen.cs" Line="1" Column="1" />
+      <File FileName="StealthOfTomorrow\AppMain.cs" Line="43" Column="54" />
+      <File FileName="StealthOfTomorrow\ButtonMenu.cs" Line="17" Column="28" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="StealthOfTomorrow" expanded="True">
             <Node name="Managers" expanded="True" />
-            <Node name="shaders" expanded="True" />
             <Node name="OptionsScreen.cs" selected="True" />
           </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">
-        <State expanded="True" selected="True" />
+        <State selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
@@ -33,8 +35,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="E:\University Work\Console Coding Club\CCCFramework\StealthOfTomorrow\OptionsScene.composer.cs" line="31" />
-      <Breakpoint file="E:\University Work\Console Coding Club\CCCFramework\StealthOfTomorrow\OptionsScene.composer.cs" line="230" />
+      <Breakpoint file="E:\University Work\Console Coding Club\CCCFramework\StealthOfTomorrow\Managers\GameManager.cs" line="89" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

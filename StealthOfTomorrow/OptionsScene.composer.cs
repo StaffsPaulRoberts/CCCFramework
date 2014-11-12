@@ -6,6 +6,7 @@ using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Imaging;
 using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.HighLevel.UI;
+using CustomButtons;
 
 namespace OptionsUI
 {
@@ -44,7 +45,7 @@ namespace OptionsUI
             BrightnessLabel.Name = "BrightnessLabel";
             Contrast = new Label();
             Contrast.Name = "Contrast";
-            MenuButton = new Button();
+            MenuButton = new ButtonMenu();
             MenuButton.Name = "MenuButton";
 
             // OptionsScene

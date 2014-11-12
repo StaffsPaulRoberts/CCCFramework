@@ -50,6 +50,7 @@
     <Compile Include="OptionsScreen.cs" />
     <Compile Include="OptionsScene.composer.cs" />
     <Compile Include="OptionsScene.cs" />
+    <Compile Include="ButtonMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -64,8 +65,8 @@
     <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="gamepopper-logo.png" />
     <Content Include="saltire.jpg" />
     <Content Include="Assets\bird1.png" />
-    <Content Include="gamepopper-logo.png" />
   </ItemGroup>
 </Project>
