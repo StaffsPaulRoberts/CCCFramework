@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Sce.PlayStation.HighLevel.UI;
 
 namespace StealthOfTomorrow
@@ -6,7 +7,7 @@ namespace StealthOfTomorrow
 	public class GameHUD: Scene
 	{
 		private int screenWidth, screenHeight;
-		private PlayerHUD playerHUD;
+		private List<PlayerHUD> playerHUDs;
 		private float Y_PADDING = 5f;
 		
 		public GameHUD (Character player): base ()
@@ -14,8 +15,9 @@ namespace StealthOfTomorrow
 			float xFactor = 0.5f;
 			
 			Initialise();
-			playerHUD = new PlayerHUD(player, screenWidth * xFactor, Y_PADDING);
-			this.RootWidget.AddChildLast(playerHUD);
+			playerHUDs.Add(new PlayerHUD(player, screenWidth * xFactor, Y_PADDING));
+			foreach (var HUD in playerHUDs)
+				this.RootWidget.AddChildLast(HUD);
 		}
 		
 		public GameHUD(Character[] players, int maxPlayers): base()
@@ -27,8 +29,11 @@ namespace StealthOfTomorrow
 			
 			for(int i=1; i <= playerCount; i++)
 			{
-				this.RootWidget.AddChildLast(new PlayerHUD(players[i], screenWidth * xFactor * i, Y_PADDING));
+				playerHUDs.Add(new PlayerHUD(players[i], screenWidth * xFactor * i, Y_PADDING));
 			}
+			
+			foreach (var HUD in playerHUDs)
+				this.RootWidget.AddChildLast(HUD);
 		}
 		
 		private void Initialise()
@@ -40,13 +45,14 @@ namespace StealthOfTomorrow
 			// Read screen dimensions
 			screenWidth = UISystem.FramebufferWidth;
 			screenHeight = UISystem.FramebufferHeight;
+			playerHUDs = new List<PlayerHUD>();
 			
 		}
 		override protected void OnUpdate(float dt)
 		{
-			playerHUD.Update(dt);
+			foreach(var HUD in playerHUDs)
+				HUD.Update(dt);
 		}
-		
 	}
 	
 	class PlayerHUD : Panel
@@ -66,7 +72,7 @@ namespace StealthOfTomorrow
 		private ImageBox energyBar, healthBar;
 		private ImageBox[] lives;
 		
-		private float verticalFrameHeight, horizontalFrameWidth;
+		private float verticalFrameHeight, horizontalFrameWidth, initialEnergyBarY;
 		
 		public PlayerHUD(Character player, float x, float y): base()
 		{
@@ -100,7 +106,7 @@ namespace StealthOfTomorrow
 			this.AddChildLast(livesFrame);
 			// Lives in bar
 			lives = new ImageBox[MAX_LIVES];
-			for (int i = 0; i < player.Lives; i++)
+			for (int i = 0; i < MAX_LIVES; i++)
 			{
 				lives[i] = new ImageBox();
 				lives[i].Image = livesImage;
@@ -110,9 +116,9 @@ namespace StealthOfTomorrow
 				this.AddChildLast(lives[i]);
 				yPos += livesSize;
 			}
-			// Move cursor to top right end of frame
+			// Move cursor to bottom right end of frame
 			xPos += livesSize;
-			yPos -= livesSize * player.Lives;
+			yPos -= livesSize * MAX_LIVES;
 			
 			// Energy bar frame
 			ImageBox energyFrame = new ImageBox();
@@ -127,11 +133,12 @@ namespace StealthOfTomorrow
 			energyBar.ImageScaleType = ImageScaleType.Stretch;
 			energyBar.SetPosition(xPos, yPos);
 			energyBar.SetSize(verticalFrameWidth, verticalFrameHeight); // * player.Energy / MAX_VALUE);
+			initialEnergyBarY = yPos;
 			this.AddChildLast(energyBar);
 			
 			// Horizontal frame dimensions
 			horizontalFrameWidth = thumb.Width + livesSize + verticalFrameWidth;
-			float horizontalFrameHeight = (healthImage.Width / horizontalFrameWidth) * healthImage.Height;
+			float horizontalFrameHeight = (horizontalFrameWidth / healthImage.Width) * healthImage.Height;
 			
 			// Move down the frame height, and left the thumbnail and lives frame width
 			yPos -= horizontalFrameHeight;
@@ -158,10 +165,11 @@ namespace StealthOfTomorrow
 		public void Update(float dt)
 		{
 			energyBar.Height = verticalFrameHeight * player.Energy / MAX_VALUE;
-			healthBar.Width = horizontalFrameWidth * player.Health/MAX_VALUE;
-			for(int i = MAX_LIVES - 1; i >= player.Lives; i--)
+			energyBar.Y = initialEnergyBarY + verticalFrameHeight * (1 - player.Energy / MAX_VALUE);
+			healthBar.Width = horizontalFrameWidth * player.Health / MAX_VALUE;
+			for(int i = 0; i < MAX_LIVES; i++)
 			{
-				lives[i].Visible = false;
+				lives[i].Visible = i >= MAX_LIVES - player.Lives;
 			}
 		}
 }
