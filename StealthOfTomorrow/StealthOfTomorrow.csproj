@@ -74,5 +74,6 @@
     <Content Include="Assets\Animations\testAnim.png" />
     <Content Include="Assets\base_platform.png" />
     <Content Include="Assets\base_platform_main.png" />
+    <Content Include="Assets\HealthGUI\EmptyVerticalBar.png" />
   </ItemGroup>
 </Project>
