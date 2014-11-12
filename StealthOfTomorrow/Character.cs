@@ -128,14 +128,22 @@ namespace StealthOfTomorrow
 			}
 			
 			//adjusting health and energy for testing GAMEHUD
-			
+			if ( Input2.GamePad0.Circle.Press )
+			{
+				lives--;
+				if(lives < 0)
+					lives = 4;
+				
+			}
 			if ( Input2.GamePad0.Cross.Press )
 			{
 				TakeDamage(10);
+				
 			}
 			if ( Input2.GamePad0.Square.Press )
 			{
 				Attack();
+				AnimationManager.Instance.SetSpriteState("testChar", "Kick");
 			}
 			
 
