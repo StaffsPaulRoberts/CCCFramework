@@ -78,5 +78,6 @@
     <Content Include="Assets\Animations\Jump.png" />
     <Content Include="Assets\Animations\Kick.png" />
     <Content Include="Assets\Animations\Walk.png" />
+    <Content Include="Assets\HealthGUI\EmptyVerticalBar.png" />
   </ItemGroup>
 </Project>

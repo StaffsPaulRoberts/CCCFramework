@@ -74,15 +74,19 @@ namespace StealthOfTomorrow
 		
 		public void Attack()
 		{
-			
+			energy -= 10;
+			Console.WriteLine("Energy: " + energy.ToString());
+			if(energy <= 0)
+				energy = 100;
 		}
 		
 		public void TakeDamage(int dmg)
 		{
 			health -= dmg;
+			Console.WriteLine("Health: " + health.ToString());
 			if(health <= 0)
 			{
-				
+				health = 100;
 			}
 		}
 		
@@ -121,6 +125,17 @@ namespace StealthOfTomorrow
 						isFalling = false;
 					}
 				}
+			}
+			
+			//adjusting health and energy for testing GAMEHUD
+			
+			if ( Input2.GamePad0.Cross.Press )
+			{
+				TakeDamage(10);
+			}
+			if ( Input2.GamePad0.Square.Press )
+			{
+				Attack();
 			}
 			
 
