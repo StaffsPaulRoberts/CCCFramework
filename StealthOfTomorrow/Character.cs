@@ -74,15 +74,19 @@ namespace StealthOfTomorrow
 		
 		public void Attack()
 		{
-			
+			energy -= 10;
+			Console.WriteLine("Energy: " + energy.ToString());
+			if(energy <= 0)
+				energy = 100;
 		}
 		
 		public void TakeDamage(int dmg)
 		{
 			health -= dmg;
+			Console.WriteLine("Health: " + health.ToString());
 			if(health <= 0)
 			{
-				
+				health = 100;
 			}
 		}
 		
@@ -92,36 +96,55 @@ namespace StealthOfTomorrow
 			
 			Move(deltaTime);
 			
-//			if(isJumping)
-//			{
-//				sprite.
-//				if(!isFalling)
-//				{
-//					if(origPos.Y  + sprite.Position.Y < 100)
-//					{
-//						sprite.Position = new Vector2(sprite.Position.X + jumpForce.X, sprite.Position.Y + jumpForce.Y);
-//						Console.WriteLine(sprite.Position);
-//					}
-//					else
-//						isFalling = true;
-//				}
-//				
-//				
-//				else if(isFalling)
-//				{
-//					if(sprite.Position.Y > origPos.Y)
-//					{
-//						 sprite.Position = new Vector2(sprite.Position.X + jumpForce.X, sprite.Position.Y - jumpForce.Y);
-//					}
-//					else
-//					{
-//						sprite.Position = new Vector2(sprite.Position.X, origPos.Y);
-//						Console.WriteLine(sprite.Position);
-//						isJumping = false;
-//						isFalling = false;
-//					}
-//				}
-			//}
+			
+			if(isJumping)
+			{
+				if(!isFalling)
+				{
+					if(sprite.position.Y - origPos.Y < 220)//jumpheight//220)
+					{
+						sprite.position = new Vector2(sprite.position.X + jumpForce.X, sprite.position.Y + jumpForce.Y);
+						Console.WriteLine(sprite.position);
+					}
+					else
+						isFalling = true;
+				}
+				
+				
+				else if(isFalling)
+				{
+					if(sprite.position.Y > origPos.Y)
+					{
+						 sprite.position = new Vector2(sprite.position.X + jumpForce.X, sprite.position.Y - jumpForce.Y);
+					}
+					else
+					{
+						sprite.position = new Vector2(sprite.position.X, origPos.Y);
+						Console.WriteLine(sprite.position);
+						isJumping = false;
+						isFalling = false;
+					}
+				}
+			}
+			
+			//adjusting health and energy for testing GAMEHUD
+			if ( Input2.GamePad0.Circle.Press )
+			{
+				lives--;
+				if(lives < 0)
+					lives = 4;
+				
+			}
+			if ( Input2.GamePad0.Cross.Press )
+			{
+				TakeDamage(10);
+				
+			}
+			if ( Input2.GamePad0.Square.Press )
+			{
+				Attack();
+				AnimationManager.Instance.SetSpriteState("testChar", "Kick");
+			}
 			
 
 		}
@@ -130,41 +153,41 @@ namespace StealthOfTomorrow
 		{
 			int speed = 200;
 			
-//			if(!isJumping)
-//			{
-//				if((gamePadData.Buttons & GamePadButtons.Left) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
-//				{
-//					Jump("Left",deltaTime,speed);
-//				}
-//				else if((gamePadData.Buttons & GamePadButtons.Right) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
-//				{
-//					Jump("Right",deltaTime,speed);
-//				}
-//				
-//				else if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
-//				{
-//				
-//				sprite.Position += new Vector2(-1 * speed * deltaTime,0);
-//				sprite.Scale = new Vector2(-1,1);	
-//					
-//				}
-//				else if((gamePadData.Buttons & GamePadButtons.Right) != 0)
-//				{
-//			
-//				sprite.Position += new Vector2(1 * speed * deltaTime,0);
-//					sprite.Scale = new Vector2(1,1);	
-//				}
-//				else if((gamePadData.Buttons & GamePadButtons.Up) != 0)
-//				{
-//					
-//				sprite.Position += new Vector2(0,1 * speed * deltaTime);	
-//				}
-//				else if((gamePadData.Buttons & GamePadButtons.Down) != 0)
-//				{
-//					
-//				sprite.Position += new Vector2(0,-1 * speed * deltaTime);	
-//				}
-//			}
+			if(!isJumping)
+			{
+				if((gamePadData.Buttons & GamePadButtons.Left) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
+				{
+					Jump("Left",deltaTime,speed);
+				}
+				else if((gamePadData.Buttons & GamePadButtons.Right) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
+				{
+					Jump("Right",deltaTime,speed);
+				}
+				
+				else if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
+				{
+				
+				sprite.position += new Vector2(-1 * speed * deltaTime,0);
+				//sprite.Scale = new Vector2(-1,1);	
+					
+				}
+				else if((gamePadData.Buttons & GamePadButtons.Right) != 0)
+				{
+			
+				sprite.position += new Vector2(1 * speed * deltaTime,0);
+					//sprite.Scale = new Vector2(1,1);	
+				}
+				else if((gamePadData.Buttons & GamePadButtons.Up) != 0)
+				{
+					
+				sprite.position += new Vector2(0,1 * speed * deltaTime);	
+				}
+				else if((gamePadData.Buttons & GamePadButtons.Down) != 0)
+				{
+					
+				sprite.position += new Vector2(0,-1 * speed * deltaTime);	
+				}
+			}
 			
 		}
 		
@@ -172,23 +195,23 @@ namespace StealthOfTomorrow
 		{
 			
 			
-//			if(!this.isJumping)
-//			{
-//				this.isJumping = true;
-//				this.origPos = sprite.Position;
-//				switch (dir) 
-//				{
-//				case "Left":
-//					jumpForce = new Vector2(-1 * speed * deltaTime , 2 * speed * deltaTime);
-//					
-//					break;
-//				case "Right":
-//					jumpForce = new Vector2(1 * speed * deltaTime , 2 * speed * deltaTime);
-//					break;
-//				default:
-//					break;
-//				}
-//			}
+			if(!this.isJumping)
+			{
+				this.isJumping = true;
+				this.origPos = sprite.position;
+				switch (dir) 
+				{
+				case "Left":
+					jumpForce = new Vector2(-1 * speed * deltaTime , 2 * speed * deltaTime);
+					
+					break;
+				case "Right":
+					jumpForce = new Vector2(1 * speed * deltaTime , 2 * speed * deltaTime);
+					break;
+				default:
+					break;
+				}
+			}
 		}
 		
 		

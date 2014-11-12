@@ -22,41 +22,69 @@ namespace StealthOfTomorrow
 			}
 		}
 		
-		private static List<AnimatedSprite> m_animations = new List<AnimatedSprite>();
-		private static List<AnimatedSprite> m_activeAnimations = new List<AnimatedSprite>();
+		private static Dictionary<string, AnimatedSprite> m_animations = new Dictionary<string, AnimatedSprite>();
+		private static Dictionary<string, AnimatedSprite> m_activeAnimations = new Dictionary<string, AnimatedSprite>();
 		private Scene scene;
 		
-		public AnimatedSprite LoadAnimation(string filename, Vector2i numTiles, Scene toSet)
+		public void LoadAnimation(int numSprites, string[] states, string[] filenames, Vector2i[] numTiles, Scene toSet, string id)
 		{
 			scene = toSet;
-			Texture2D texture = new Texture2D(filename, false);
-			TextureInfo info = new TextureInfo(texture, numTiles);
-			SpriteTile tile = new SpriteTile(info);
-			tile.Quad.S = new Vector2(info.TextureSizef.X / numTiles.X, info.TextureSizef.Y);
-			tile.CenterSprite();
-			AnimatedSprite newSprite = new AnimatedSprite(tile, numTiles.X);
-			m_animations.Add(newSprite);
-			return newSprite;
+			Texture2D[] textures = new Texture2D[numSprites];
+			TextureInfo[] infos = new TextureInfo[numSprites];
+			SpriteTile[] tiles = new SpriteTile[numSprites];
+			
+			for(int i = 0; i < numSprites; i++)
+			{
+				textures[i] = new Texture2D(filenames[i], false);
+				infos[i] = new TextureInfo(textures[i], numTiles[i]);
+				tiles[i] = new SpriteTile(infos[i]);
+				tiles[i].Quad.S = new Vector2((infos[i].TextureSizef.X / numTiles[i].X) * 5.0f, infos[i].TextureSizef.Y * 5.0f);
+				tiles[i].CenterSprite();
+				
+				Dictionary<string, SpriteTile> dictTiles = new Dictionary<string, SpriteTile>(numSprites);
+				Dictionary<string, Vector2i> dictNumTiles = new Dictionary<string, Vector2i>(numSprites);
+				
+				for(int j = 0; j < numSprites; j++)
+				{
+					dictTiles[states[j]] = tiles[j];
+					dictNumTiles[states[j]] = numTiles[j];
+				}
+				
+				AnimatedSprite newSprite = new AnimatedSprite(dictTiles, dictNumTiles, true);
+				m_animations[id] = newSprite;
+			}
 		}
 		
-		public void ActivateAnimation(AnimatedSprite toActivate)
+		 public void ActivateAnimation(string toActivate)
 		{
-			m_activeAnimations.Add(toActivate);
-			toActivate.active = true;
-			scene.AddChild(toActivate.sprite);
+			m_animations[toActivate].active = true;
+			m_animations[toActivate].Activate(scene);
+			m_activeAnimations.Add(toActivate, m_animations[toActivate]);
 		}
 		
-		public void DeactivateAnimation(AnimatedSprite toDeactivate)
+		public void DeactivateAnimation(string toDeactivate)
 		{
+			m_animations[toDeactivate].active = false;
+			m_animations[toDeactivate].Deactivate(scene);
 			m_activeAnimations.Remove(toDeactivate);
-			toDeactivate.active = false;
-			scene.RemoveChild(toDeactivate.sprite, false);
 		}
 		
 		public void UpdateAnimations()
 		{
-			foreach(AnimatedSprite a in m_activeAnimations) a.Update();
+			foreach(AnimatedSprite a in m_activeAnimations.Values)
+			{
+				a.Update();
+			}
 		}
 		
+		public void SetSpriteState(string spriteID, string state)
+		{
+			m_animations[spriteID].SetState(state);
+		}
+		
+		public AnimatedSprite GetAnimatedSprite(string id)
+		{
+			return m_animations[id];
+		}
 	}
 }
