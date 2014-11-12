@@ -45,14 +45,14 @@ namespace StealthOfTomorrow
 			sprite.Position = new Vector2(screenSize.Width/2, screenSize.Height/2);
 			sprite.Scale    = _ti.TextureSizef;
 			
-			// Flag code
-			textureFlag = new Texture2D("/Application/saltire.jpg", false);
-			tiFlag = new TextureInfo(textureFlag);
-			
-			SpriteUV flag = new SpriteUV(tiFlag);
-			flag.Quad.S = _ti.TextureSizef;
-			flag.Position = new Vector2(0, 0);
-			this.AddChild(flag);
+//			//Flag code
+//			textureFlag = new Texture2D("/Application/saltire.jpg", false);
+//			tiFlag = new TextureInfo(textureFlag);
+//			
+//			SpriteUV flag = new SpriteUV(tiFlag);
+//			flag.Quad.S = _ti.TextureSizef;
+//			flag.Position = new Vector2(0, 0);
+//			this.AddChild(flag);
 			
 			this.Camera.SetViewFromViewport();
 			this.AddChild(sprite);
@@ -62,8 +62,6 @@ namespace StealthOfTomorrow
 			
 			//Base Level Class code
 			baseLevel = new BaseLevel(this);
-			
-			
 			
 			// Animated Sprite loading + activation
 			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/Assets/Animations/testAnim.png", new Vector2i(4, 1), this);
