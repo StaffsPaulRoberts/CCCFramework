@@ -6,6 +6,7 @@ using Sce.PlayStation.Core.Environment;
 using Sce.PlayStation.Core.Graphics;
 using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
+using Sce.PlayStation.HighLevel.UI;
 
 namespace StealthOfTomorrow
 {
@@ -15,7 +16,6 @@ namespace StealthOfTomorrow
 		
 		public static void Main (string[] args)
 		{
-			
 			Initialize();
 
 			while (true) {
@@ -23,6 +23,7 @@ namespace StealthOfTomorrow
 				
 				Director.Instance.Update();
 				Director.Instance.Render();
+				UISystem.Render();
 				
 				Director.Instance.GL.Context.SwapBuffers(); // Swap between back and front buffer
 				Director.Instance.PostSwap(); // Must be called after swap buffers - not 100% sure, imagine it resets back buffer to black/white, unallocates tied resources for next swap
@@ -38,6 +39,8 @@ namespace StealthOfTomorrow
 			DebugOverlay scnDebug = new DebugOverlay();	// Create our new Debug Scene			
 			
 			Director.Instance.RunWithScene(scnDebug, true);	// Tell the Director to run the scene
+			
+			UISystem.Initialize(Director.Instance.GL.Context);
 		}
 		
 		/*********** No need for these methods, Director takes care of it for us now *************************

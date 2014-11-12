@@ -33,6 +33,7 @@ namespace StealthOfTomorrow
 			this.AddChild(spriteBG);
 			
 			/*VVV - This UIComposer Implementation should work, but a NullReferenceException is causing it to fail. - VVV*/
+			//UISystem.Initialize(Director.Instance.GL.Context);
 			uiScene = new OptionsUI.OptionsScene();
 			UISystem.SetScene(uiScene);
 			
@@ -54,7 +55,13 @@ namespace StealthOfTomorrow
 		
 		public override void Update (float dt)
 		{
+			UISystem.Update(Touch.GetData(0));
 			base.Update (dt);
+		}
+		
+		public override void Draw ()
+		{
+			base.Draw ();
 		}
 	}
 }
