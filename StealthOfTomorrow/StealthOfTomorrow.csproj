@@ -74,5 +74,9 @@
     <Content Include="Assets\Animations\testAnim.png" />
     <Content Include="Assets\base_platform.png" />
     <Content Include="Assets\base_platform_main.png" />
+    <Content Include="Assets\Animations\Idle.png" />
+    <Content Include="Assets\Animations\Jump.png" />
+    <Content Include="Assets\Animations\Kick.png" />
+    <Content Include="Assets\Animations\Walk.png" />
   </ItemGroup>
 </Project>

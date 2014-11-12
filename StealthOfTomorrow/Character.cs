@@ -95,7 +95,6 @@ namespace StealthOfTomorrow
 			
 			if(isJumping)
 			{
-				
 				if(!isFalling)
 				{
 					if(sprite.position.Y - origPos.Y < 220)//jumpheight//220)

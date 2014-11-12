@@ -63,14 +63,17 @@ namespace StealthOfTomorrow
 			//Base Level Class code
 			baseLevel = new BaseLevel(this);
 			
-			
-			
 			// Animated Sprite loading + activation
-			AnimatedSprite testSprite = AnimationManager.Instance.LoadAnimation("/Application/Assets/Animations/testAnim.png", new Vector2i(4, 1), this);
-			AnimationManager.Instance.ActivateAnimation(testSprite);
+			string[] charSprites = new string[4]{"/Application/Assets/Animations/Idle.png", "/Application/Assets/Animations/Walk.png" , "/Application/Assets/Animations/Jump.png", "/Application/Assets/Animations/Kick.png"};
+			string[] testSprites = new string[1]{"/Application/Assets/Animations/testAnim.png"};
+			AnimationManager.Instance.LoadAnimation(4 , new string[4]{"Idle", "Walk", "Jump", "Kick"}, charSprites, new Vector2i[4]{new Vector2i(1, 1), new Vector2i(2, 1), new Vector2i(2, 1), new Vector2i(2, 1)}, this, "testChar");
+			AnimationManager.Instance.LoadAnimation(1, new string[1]{"Spinning"}, testSprites, new Vector2i[1]{new Vector2i(4, 1)}, this, "testAnim");
+			
+			AnimationManager.Instance.SetSpriteState("testChar", "Walk");
+			AnimationManager.Instance.ActivateAnimation("testChar");
 			
 			//Player Code
-			player1 = new Character(this,testSprite,4,100,100);
+			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,100,100);
 			Console.WriteLine("Created Player");
 			
 			// Example (test) player UI
