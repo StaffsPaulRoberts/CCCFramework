@@ -74,8 +74,6 @@
     <Content Include="Assets\HealthGUI\StaminaBar.png" />
     <Content Include="Assets\HealthGUI\Lives.png" />
     <Content Include="Assets\Animations\testAnim.png" />
-    <Content Include="Assets\base_platform_side.png" />
-    <Content Include="Assets\base_background.png" />
     <Content Include="Assets\Backgrounds\base_Layer_Back.png" />
     <Content Include="Assets\Backgrounds\base_Layer_Front.png" />
     <Content Include="Assets\Backgrounds\base_Layer_Middle.png" />
@@ -84,5 +82,7 @@
     <Content Include="Assets\Animations\Kick.png" />
     <Content Include="Assets\Animations\Walk.png" />
     <Content Include="Assets\HealthGUI\EmptyVerticalBar.png" />
+    <Content Include="Assets\base_platform_main.png" />
+    <Content Include="Assets\base_platform_side.png" />
   </ItemGroup>
 </Project>
