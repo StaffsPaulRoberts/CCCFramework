@@ -72,5 +72,7 @@
     <Content Include="Assets\HealthGUI\StaminaBar.png" />
     <Content Include="Assets\HealthGUI\Lives.png" />
     <Content Include="Assets\Animations\testAnim.png" />
+    <Content Include="Assets\base_platform.png" />
+    <Content Include="Assets\base_platform_main.png" />
   </ItemGroup>
 </Project>
