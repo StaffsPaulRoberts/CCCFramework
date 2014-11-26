@@ -65,7 +65,7 @@ namespace StealthOfTomorrow
 			
 			// Animated Sprite loading + activation
 			AnimationManager.Instance.LoadAnimation(4, new string[4]{"Idle", "Walk", "Jump", "Kick"}, "/Application/Assets/Animations/testChar.png", new Vector2i(2, 4), this, "testChar");
-			AnimationManager.Instance.SetSpriteState("testChar", "Walk");
+			AnimationManager.Instance.SetSpriteState("testChar", "Idle");
 			AnimationManager.Instance.ActivateAnimation("testChar", this);
 			
 			//Player Code

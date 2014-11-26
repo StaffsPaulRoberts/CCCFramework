@@ -33,16 +33,13 @@ namespace StealthOfTomorrow
 			TextureInfo info = new TextureInfo(texture, numTiles);
 			SpriteTile tile = new SpriteTile(info);
 			
-			Dictionary<string, SpriteTile> dictTiles = new Dictionary<string, SpriteTile>(numSprites);
-			Dictionary<string, Vector2i> dictNumTiles = new Dictionary<string, Vector2i>(numSprites);
-			
 			texture = new Texture2D(filename, false);
 			info = new TextureInfo(texture, numTiles);
 			tile = new SpriteTile(info);
 			tile.Quad.S = new Vector2(info.TextureSizef.X / numTiles.X, info.TextureSizef.Y / numTiles.Y);
 			tile.CenterSprite();
 		
-			AnimatedSprite newSprite = new AnimatedSprite(tile, numTiles, states, true);
+			AnimatedSprite newSprite = new AnimatedSprite(tile, states, true);
 			m_animations[id] = newSprite;
 		}
 		

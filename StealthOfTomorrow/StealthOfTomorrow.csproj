@@ -76,10 +76,6 @@
     <Content Include="Assets\Backgrounds\base_Layer_Back.png" />
     <Content Include="Assets\Backgrounds\base_Layer_Front.png" />
     <Content Include="Assets\Backgrounds\base_Layer_Middle.png" />
-    <Content Include="Assets\Animations\Idle.png" />
-    <Content Include="Assets\Animations\Jump.png" />
-    <Content Include="Assets\Animations\Kick.png" />
-    <Content Include="Assets\Animations\Walk.png" />
     <Content Include="Assets\HealthGUI\EmptyVerticalBar.png" />
     <Content Include="Assets\base_platform_main.png" />
     <Content Include="Assets\base_platform_side.png" />
