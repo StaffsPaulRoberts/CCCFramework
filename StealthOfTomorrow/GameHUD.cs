@@ -27,9 +27,9 @@ namespace StealthOfTomorrow
 			
 			Initialise();
 			
-			for(int i=1; i <= playerCount; i++)
+			for(int i=0; i < playerCount; i++)
 			{
-				playerHUDs.Add(new PlayerHUD(players[i], screenWidth * xFactor * i, Y_PADDING));
+				playerHUDs.Add(new PlayerHUD(players[i], screenWidth * xFactor * i + 1, Y_PADDING));
 			}
 			
 			foreach (var HUD in playerHUDs)
@@ -160,6 +160,7 @@ namespace StealthOfTomorrow
 			
 			// Position this
 			this.SetPosition(x, y);
+			this.Anchors = Anchors.Left;
 		}
 		
 		public void Update(float dt)
