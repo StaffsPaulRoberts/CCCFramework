@@ -138,7 +138,7 @@ namespace StealthOfTomorrow
 			if ( Input2.GamePad0.Cross.Press )
 			{
 				TakeDamage(10);
-				
+				AnimationManager.Instance.SetSpriteState("testChar", "Walk");
 			}
 			if ( Input2.GamePad0.Square.Press )
 			{

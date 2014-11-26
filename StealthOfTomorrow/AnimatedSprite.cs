@@ -10,51 +10,58 @@ namespace StealthOfTomorrow
 {
 	public class AnimatedSprite
 	{
-		public AnimatedSprite (Dictionary<string, SpriteTile> tiles, Dictionary<string, Vector2i> tileAmount, bool loops)
+		public AnimatedSprite(SpriteTile tile, Vector2i numTiles, string[] states, bool loops)
 		{
-			dictSprites = tiles;
-			dictTileIndices = tileAmount;
+			spriteTile = tile;
+			tileIndices = numTiles;
 			loop = loops;
 		}
 		
 		public bool active, loop;
-		public Vector2 position { get { return currentSprite.Position; } set { currentSprite.Position = value; } }
+		public Vector2 position { get { return m_position; } set { m_position = value; } }
 		
-		private Dictionary<string, SpriteTile> dictSprites;
-		private SpriteTile currentSprite;
-		private Dictionary<string, Vector2i> dictTileIndices;
-		private Vector2i currentTiles;
-		private int currIndex = 0;
+		private SpriteTile spriteTile;
+		private Vector2i tileIndices;
+		private int stateTilesWidth;
+		private int currY;
+		private int currIndex;
+		private Vector2 m_position;
 		
 		public void SetState(string state)
 		{
-			currentTiles = dictTileIndices[state];
-			currentSprite = dictSprites[state];
-			currIndex = 0;
+			int stateY = 0;
+			
+			switch(state)
+			{
+			default: stateTilesWidth = 2; break;
+			}
+			
+			currY = stateY;
 		}
 		
 		public void Update()
 		{
 			if(!active) return;
+			
 			currIndex++;
-			if(currIndex >= currentTiles.X)
+			if(currIndex >= stateTilesWidth)
 			{
-				if(loop)
-				{
-					currIndex = 0;
-				} else currIndex--;
+				if(loop) currIndex = 0;
+				else currIndex--;
 			}
-			currentSprite.TileIndex1D = currIndex;
+			
+			spriteTile.TileIndex2D = new Vector2i(currIndex, currY);
+			spriteTile.Position = m_position;
 		}
 		
 		public void Activate(Scene scene)
 		{
-			scene.AddChild(currentSprite);
+			scene.AddChild(spriteTile);
 		}
 		
 		public void Deactivate(Scene scene)
 		{
-			scene.RemoveChild(currentSprite, false);
+			scene.RemoveChild(spriteTile, false);
 		}
 	}
 }
