@@ -89,11 +89,12 @@ namespace StealthOfTomorrow
 			base.Update (dt);
 			
 			//var touches = Touch.GetData(0);
-			if(Input2.GamePad0.Start.Press && !transitionStarted)
+			if(Input2.GamePad0.Start.Press && !transitionStarted || Touch.GetData(0).Count > 0 && !transitionStarted)
 			{
 				transitionStarted = true;
 				Touch.GetData(0).Clear();
-				SceneManager.Instance.SendSceneToFront(new OptionsScreen(), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+				//SceneManager.Instance.SendSceneToFront(new FrontEnd(), SceneManager.SceneTransitionType.CrossFade, 3.0f);
 			}
 		}
 	}

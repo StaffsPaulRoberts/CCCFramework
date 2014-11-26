@@ -44,6 +44,7 @@
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="GameScene.cs" />
+<<<<<<< HEAD
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="UIStringTable.cs" />
@@ -51,6 +52,15 @@
     <Compile Include="OptionsScene.composer.cs" />
     <Compile Include="OptionsScene.cs" />
     <Compile Include="ButtonMenu.cs" />
+=======
+    <Compile Include="GameHUD.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="Managers\AnimationManager.cs" />
+    <Compile Include="AnimatedSprite.cs" />
+    <Compile Include="Managers\AudioManager.cs" />
+    <Compile Include="BaseLevel.cs" />
+    <Compile Include="FrontEnd.cs" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -63,10 +73,23 @@
   <ItemGroup>
     <Folder Include="Managers\" />
     <Folder Include="Assets\" />
+    <Folder Include="Assets\Animations\" />
+    <Folder Include="Assets\Backgrounds\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="gamepopper-logo.png" />
     <Content Include="saltire.jpg" />
     <Content Include="Assets\bird1.png" />
+    <Content Include="Assets\HealthGUI\EmptyBar.png" />
+    <Content Include="Assets\HealthGUI\HealthBar.png" />
+    <Content Include="Assets\HealthGUI\StaminaBar.png" />
+    <Content Include="Assets\HealthGUI\Lives.png" />
+    <Content Include="Assets\Backgrounds\base_Layer_Back.png" />
+    <Content Include="Assets\Backgrounds\base_Layer_Front.png" />
+    <Content Include="Assets\Backgrounds\base_Layer_Middle.png" />
+    <Content Include="Assets\HealthGUI\EmptyVerticalBar.png" />
+    <Content Include="Assets\base_platform_main.png" />
+    <Content Include="Assets\base_platform_side.png" />
+    <Content Include="Assets\Animations\testChar.png" />
   </ItemGroup>
 </Project>

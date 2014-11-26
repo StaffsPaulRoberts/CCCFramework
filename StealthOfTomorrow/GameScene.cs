@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 using Sce.PlayStation.Core;
 using Sce.PlayStation.Core.Graphics;
@@ -18,7 +19,9 @@ namespace StealthOfTomorrow
 		
 		TextureInfo tiFlag;
 		Texture2D 	textureFlag;
-		Character 	player1;
+		Character 	player1, player2, player3;
+		
+		BaseLevel 	baseLevel;
 		
 		public GameScene (string text, ImageColor textcolor, int textSize)
 		{
@@ -43,14 +46,14 @@ namespace StealthOfTomorrow
 			sprite.Position = new Vector2(screenSize.Width/2, screenSize.Height/2);
 			sprite.Scale    = _ti.TextureSizef;
 			
-			// Flag code
-			textureFlag = new Texture2D("/Application/saltire.jpg", false);
-			tiFlag = new TextureInfo(textureFlag);
-			
-			SpriteUV flag = new SpriteUV(tiFlag);
-			flag.Quad.S = _ti.TextureSizef;
-			flag.Position = new Vector2(0, 0);
-			this.AddChild(flag);
+//			//Flag code
+//			textureFlag = new Texture2D("/Application/saltire.jpg", false);
+//			tiFlag = new TextureInfo(textureFlag);
+//			
+//			SpriteUV flag = new SpriteUV(tiFlag);
+//			flag.Quad.S = _ti.TextureSizef;
+//			flag.Position = new Vector2(0, 0);
+//			this.AddChild(flag);
 			
 			this.Camera.SetViewFromViewport();
 			this.AddChild(sprite);
@@ -58,9 +61,24 @@ namespace StealthOfTomorrow
 			Scheduler.Instance.ScheduleUpdateForTarget(this,0,false);
 			this.RegisterDisposeOnExitRecursive();
 			
+			//Base Level Class code
+			baseLevel = new BaseLevel(this);
+			
+			// Animated Sprite loading + activation
+			AnimationManager.Instance.LoadAnimation(4, new string[4]{"Idle", "Walk", "Jump", "Kick"}, "/Application/Assets/Animations/testChar.png", new Vector2i(2, 4), this, "testChar");
+			AnimationManager.Instance.SetSpriteState("testChar", "Walk");
+			AnimationManager.Instance.ActivateAnimation("testChar", this);
 			
 			//Player Code
-			player1 = new Character(this,"/Application/Assets/bird1.png",100,100);
+			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,100,100);
+			player2 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,100);
+			player3 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,10);
+			List<Character> players = new List<Character> {player1 , player2, player3};
+			
+			Console.WriteLine("Created Players");
+			
+			// Example (test) player UI
+			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(players), null);
 		}
 		
 		public override void OnEnter()
