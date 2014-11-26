@@ -218,8 +218,6 @@ namespace StealthOfTomorrow
 		
 		private void Jump(string dir,float deltaTime,int speed)
 		{
-			
-			
 			if(!this.isJumping)
 			{
 				this.isJumping = true;

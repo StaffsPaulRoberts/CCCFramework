@@ -44,7 +44,6 @@
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
     <Compile Include="GameScene.cs" />
-<<<<<<< HEAD
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="UIStringTable.cs" />
@@ -52,15 +51,12 @@
     <Compile Include="OptionsScene.composer.cs" />
     <Compile Include="OptionsScene.cs" />
     <Compile Include="ButtonMenu.cs" />
-=======
     <Compile Include="GameHUD.cs" />
-    <Compile Include="Character.cs" />
     <Compile Include="Managers\AnimationManager.cs" />
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="BaseLevel.cs" />
     <Compile Include="FrontEnd.cs" />
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
