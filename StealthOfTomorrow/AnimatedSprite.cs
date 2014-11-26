@@ -10,58 +10,58 @@ namespace StealthOfTomorrow
 {
 	public class AnimatedSprite
 	{
-		public AnimatedSprite(SpriteTile tile, Vector2i numTiles, string[] states, bool loops)
+		public AnimatedSprite(SpriteTile tile, string[] states, bool loops)
 		{
-			spriteTile = tile;
-			tileIndices = numTiles;
+			m_spriteTile = tile;
 			loop = loops;
 		}
 		
 		public bool active, loop;
 		public Vector2 position { get { return m_position; } set { m_position = value; } }
+		public Vector2 scale { get { return m_spriteTile.Scale; } set { m_spriteTile.Scale = value; } }
 		
-		private SpriteTile spriteTile;
-		private Vector2i tileIndices;
-		private int stateTilesWidth;
-		private int currY;
-		private int currIndex;
+		private SpriteTile m_spriteTile;
+		
+		private Vector2i m_currIndex;
+		private int m_stateTilesWidth;
+		
 		private Vector2 m_position;
 		
 		public void SetState(string state)
 		{
-			int stateY = 0;
-			
 			switch(state)
 			{
-			default: stateTilesWidth = 2; break;
+			case "Idle": m_currIndex.Y = 3; m_stateTilesWidth = 1; break;
+			case "Walk": m_currIndex.Y = 2; m_stateTilesWidth = 2; break;
+			case "Jump": m_currIndex.Y = 1; m_stateTilesWidth = 2; break;
+			case "Kick": m_currIndex.Y = 0; m_stateTilesWidth = 2; break;
+			default: break;
 			}
-			
-			currY = stateY;
 		}
 		
 		public void Update()
 		{
 			if(!active) return;
 			
-			currIndex++;
-			if(currIndex >= stateTilesWidth)
+			m_currIndex.X++;
+			if(m_currIndex.X >= m_stateTilesWidth)
 			{
-				if(loop) currIndex = 0;
-				else currIndex--;
+				if(loop) m_currIndex.X = 0;
+				else m_currIndex.X--;
 			}
 			
-			spriteTile.TileIndex2D = new Vector2i(currIndex, currY);
-			spriteTile.Position = m_position;
+			m_spriteTile.TileIndex2D = m_currIndex;
+			m_spriteTile.Position = m_position;
 		}
 		
 		public void Activate(Scene scene)
 		{
-			scene.AddChild(spriteTile);
+			scene.AddChild(m_spriteTile);
 		}
 		
 		public void Deactivate(Scene scene)
 		{
-			scene.RemoveChild(spriteTile, false);
+			scene.RemoveChild(m_spriteTile, false);
 		}
 	}
 }
