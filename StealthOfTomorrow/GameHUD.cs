@@ -8,7 +8,7 @@ namespace StealthOfTomorrow
 	{
 		private int screenWidth, screenHeight;
 		private List<PlayerHUD> playerHUDs;
-		private float Y_PADDING = 5f;
+		private float Y_PADDING = 0f;
 		
 		public GameHUD (Character player): base ()
 		{
@@ -20,16 +20,15 @@ namespace StealthOfTomorrow
 				this.RootWidget.AddChildLast(HUD);
 		}
 		
-		public GameHUD(Character[] players, int maxPlayers): base()
+		public GameHUD(List<Character> players): base()
 		{
-			float playerCount = maxPlayers;
-			float xFactor = 1f / playerCount;
+			float xFactor = 1f / (players.Count + 1);
 			
 			Initialise();
 			
-			for(int i=0; i < playerCount; i++)
+			for(int i = 0; i < players.Count; i++)
 			{
-				playerHUDs.Add(new PlayerHUD(players[i], screenWidth * xFactor * i + 1, Y_PADDING));
+				playerHUDs.Add(new PlayerHUD(players[i], screenWidth * xFactor * (i + 1), Y_PADDING));
 			}
 			
 			foreach (var HUD in playerHUDs)
@@ -46,7 +45,6 @@ namespace StealthOfTomorrow
 			screenWidth = UISystem.FramebufferWidth;
 			screenHeight = UISystem.FramebufferHeight;
 			playerHUDs = new List<PlayerHUD>();
-			
 		}
 		override protected void OnUpdate(float dt)
 		{
@@ -55,7 +53,7 @@ namespace StealthOfTomorrow
 		}
 	}
 	
-	class PlayerHUD : Panel
+	public class PlayerHUD : Panel
 	{
 		// Load images (reused)
 		private static ImageAsset thumbImage = new ImageAsset("/Application/Assets/bird1.png");
@@ -160,7 +158,6 @@ namespace StealthOfTomorrow
 			
 			// Position this
 			this.SetPosition(x, y);
-			this.Anchors = Anchors.Left;
 		}
 		
 		public void Update(float dt)

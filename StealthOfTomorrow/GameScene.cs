@@ -19,7 +19,7 @@ namespace StealthOfTomorrow
 		
 		TextureInfo tiFlag;
 		Texture2D 	textureFlag;
-		Character 	player1, player2;
+		Character 	player1, player2, player3;
 		
 		BaseLevel 	baseLevel;
 		
@@ -72,11 +72,13 @@ namespace StealthOfTomorrow
 			//Player Code
 			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,100,100);
 			player2 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,100);
-			Character[] players = {player1 , player2};
-			Console.WriteLine("Created Player");
+			player3 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,10);
+			List<Character> players = new List<Character> {player1 , player2, player3};
+			
+			Console.WriteLine("Created Players");
 			
 			// Example (test) player UI
-			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(players, 2), null);
+			Sce.PlayStation.HighLevel.UI.UISystem.SetScene(new GameHUD(players), null);
 		}
 		
 		public override void OnEnter()
