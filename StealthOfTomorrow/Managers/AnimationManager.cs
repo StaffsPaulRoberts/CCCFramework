@@ -40,6 +40,7 @@ namespace StealthOfTomorrow
 			tile.CenterSprite();
 		
 			AnimatedSprite newSprite = new AnimatedSprite(tile, states, true);
+			newSprite.name = id;
 			m_animations[id] = newSprite;
 		}
 		

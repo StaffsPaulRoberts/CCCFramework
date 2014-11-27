@@ -20,6 +20,8 @@ namespace StealthOfTomorrow
 		private SpriteUV[] background = new SpriteUV[3];
 		private TextureInfo[] backgroundTexInfo = new TextureInfo[3];
 		
+		public Vector2[] StartingPositions;
+		
 		public BaseLevel (Scene scene)
 		{
 			//Platform Code
@@ -62,6 +64,17 @@ namespace StealthOfTomorrow
 			scene.AddChild(platforms[0]);
 			scene.AddChild(platforms[1]);
 		    scene.AddChild(platforms[2]);
+			
+			StartingPositions = new Vector2[4];
+			StartingPositions[0] = new Vector2(100, platforms[1].Position.Y + 75);
+			StartingPositions[1] = new Vector2(300, platforms[0].Position.Y + 75);
+			StartingPositions[2] = new Vector2(660, platforms[0].Position.Y + 75);
+			StartingPositions[3] = new Vector2(860, platforms[2].Position.Y + 75);
+			
+			Console.WriteLine(StartingPositions[0]);
+			Console.WriteLine(StartingPositions[1]);
+			Console.WriteLine(StartingPositions[2]);
+			Console.WriteLine(StartingPositions[3]);
 		}
 		
 		public void Dispose()

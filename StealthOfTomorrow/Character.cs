@@ -37,13 +37,15 @@ namespace StealthOfTomorrow
 		private bool isJumping;
 		Vector2 origPos,jumpForce;
 		
+		private int controllerIndex;
+		
 		private bool isFalling = false;
 		public int Health{get {return this.health;}}
 		public int Energy{get {return this.energy;}}
 		public int Lives{get { return this.lives;}}
 		
 		
-		public Character (Scene scene,AnimatedSprite animSprite,int lives,int health, int energy)
+		public Character (Scene scene,AnimatedSprite animSprite, Vector2 position, int playerNo, int lives, int health, int energy) 
 		{
 			
 //			textureInfo  = new TextureInfo(path);
@@ -55,12 +57,14 @@ namespace StealthOfTomorrow
 //			sprite.Pivot 	= new Vector2(0.5f,1.0f);
 //			sprite.CenterSprite(TRS.Local.BottomCenter);
 			this.sprite = animSprite;
-			this.sprite.position = new Vector2(450,250);
+			this.sprite.position = position;
 			isJumping = false;
 			this.jumpHeight = 40;
 			this.health = health;
 			this.energy = energy;
 			this.lives = lives;
+			controllerIndex = playerNo;
+			
 			//this.health = health;
 			//this.energy = energy;
 			
@@ -92,7 +96,7 @@ namespace StealthOfTomorrow
 		
 		public void Update(float deltaTime)
 		{
-			 gamePadData = GamePad.GetData(0);
+			gamePadData = GamePad.GetData(controllerIndex);
 			
 			int speed = 4;
 			Vector2 direction = Vector2.Zero;
@@ -100,12 +104,12 @@ namespace StealthOfTomorrow
 			if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
 			{
 				direction += new Vector2(-1,0);
-				sprite.Scale = new Vector2(-1,1);
+				sprite.scale = new Vector2(-1,1);
 			}
 			if((gamePadData.Buttons & GamePadButtons.Right) != 0)
 			{
 				direction += new Vector2(1,0);
-				sprite.Scale = new Vector2(1,1);	
+				sprite.scale = new Vector2(1,1);	
 			}
 			if((gamePadData.Buttons & GamePadButtons.Up) != 0)
 			{
@@ -118,7 +122,7 @@ namespace StealthOfTomorrow
 			
 			direction.Normalize();
 			
-			sprite.Position += direction * speed;
+			sprite.position += direction * speed;
 			Move(deltaTime);
 			
 			
@@ -163,12 +167,12 @@ namespace StealthOfTomorrow
 			if ( Input2.GamePad0.Cross.Press )
 			{
 				TakeDamage(10);
-				AnimationManager.Instance.SetSpriteState("testChar", "Walk");
+				AnimationManager.Instance.SetSpriteState(sprite.name, "Walk");
 			}
 			if ( Input2.GamePad0.Square.Press )
 			{
 				Attack();
-				AnimationManager.Instance.SetSpriteState("testChar", "Kick");
+				AnimationManager.Instance.SetSpriteState(sprite.name, "Kick");
 			}
 			
 

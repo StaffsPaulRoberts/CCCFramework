@@ -19,7 +19,7 @@ namespace StealthOfTomorrow
 		
 		TextureInfo tiFlag;
 		Texture2D 	textureFlag;
-		Character 	player1, player2, player3;
+		Character 	player1, player2, player3, player4;
 		
 		BaseLevel 	baseLevel;
 		
@@ -69,11 +69,28 @@ namespace StealthOfTomorrow
 			AnimationManager.Instance.SetSpriteState("testChar", "Idle");
 			AnimationManager.Instance.ActivateAnimation("testChar", this);
 			
+			// Animated Sprite loading + activation
+			AnimationManager.Instance.LoadAnimation(4, new string[4]{"Idle", "Walk", "Jump", "Kick"}, "/Application/Assets/Animations/testChar.png", new Vector2i(2, 4), this, "testChar1");
+			AnimationManager.Instance.SetSpriteState("testChar1", "Idle");
+			AnimationManager.Instance.ActivateAnimation("testChar1", this);
+			
+			// Animated Sprite loading + activation
+			AnimationManager.Instance.LoadAnimation(4, new string[4]{"Idle", "Walk", "Jump", "Kick"}, "/Application/Assets/Animations/testChar.png", new Vector2i(2, 4), this, "testChar2");
+			AnimationManager.Instance.SetSpriteState("testChar2", "Idle");
+			AnimationManager.Instance.ActivateAnimation("testChar2", this);
+			
+			// Animated Sprite loading + activation
+			AnimationManager.Instance.LoadAnimation(4, new string[4]{"Idle", "Walk", "Jump", "Kick"}, "/Application/Assets/Animations/testChar.png", new Vector2i(2, 4), this, "testChar3");
+			AnimationManager.Instance.SetSpriteState("testChar3", "Idle");
+			AnimationManager.Instance.ActivateAnimation("testChar3", this);
+			
 			//Player Code
-			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,100,100);
-			player2 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,100);
-			player3 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"),4,70,10);
-			List<Character> players = new List<Character> {player1 , player2, player3};
+			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"), baseLevel.StartingPositions[0],0,4,100,100);
+			player2 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar1"), baseLevel.StartingPositions[1],0,3,70,80);
+			player3 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar2"), baseLevel.StartingPositions[2],0,2,50,60);
+			player4 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar3"), baseLevel.StartingPositions[3],0,1,30,40);
+			
+			List<Character> players = new List<Character> {player1 , player2, player3, player4};
 			
 			Console.WriteLine("Created Players");
 			
@@ -88,9 +105,10 @@ namespace StealthOfTomorrow
 		public override void Update (float dt)
 		{
 			player1.Update(dt);
-			base.Update (dt);
-			
-			
+			player2.Update(dt);
+			player3.Update(dt);
+			player4.Update(dt);
+			base.Update(dt);			
 		}
 		
 		~GameScene()

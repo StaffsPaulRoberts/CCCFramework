@@ -17,6 +17,7 @@ namespace StealthOfTomorrow
 		}
 		
 		public bool active, loop;
+		public string name { get { return m_name; } set { m_name = value; } }
 		public Vector2 position { get { return m_position; } set { m_position = value; } }
 		public Vector2 scale { get { return m_spriteTile.Scale; } set { m_spriteTile.Scale = value; } }
 		
@@ -26,6 +27,8 @@ namespace StealthOfTomorrow
 		private int m_stateTilesWidth;
 		
 		private Vector2 m_position;
+		
+		private string m_name;
 		
 		public void SetState(string state)
 		{
