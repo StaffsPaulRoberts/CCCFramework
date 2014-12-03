@@ -33,11 +33,11 @@ namespace StealthOfTomorrow
 		private int jumpHeight;
 		private AttackType attackType;
 		
-		private GamePadData gamePadData,gamePadData2;
+		private GamePadData gamePadData;
 		private bool isJumping;
 		Vector2 origPos,jumpForce;
 		
-		private int controllerIndex;
+		private uint controllerIndex;
 		
 		private bool isFalling = false;
 		public int Health{get {return this.health;}}
@@ -45,7 +45,7 @@ namespace StealthOfTomorrow
 		public int Lives{get { return this.lives;}}
 		
 		
-		public Character (Scene scene,AnimatedSprite animSprite, Vector2 position, int playerNo, int lives, int health, int energy) 
+		public Character (Scene scene,AnimatedSprite animSprite, Vector2 position, uint playerNo, int lives, int health, int energy) 
 		{
 			
 //			textureInfo  = new TextureInfo(path);
@@ -96,35 +96,24 @@ namespace StealthOfTomorrow
 		
 		public void Update(float deltaTime)
 		{
-			gamePadData = GamePad.GetData(controllerIndex);
+			var gamePad = Input2.GamePad.GetData(0);
 			
 			int speed = 4;
 			Vector2 direction = Vector2.Zero;
 			
-			if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
+			if (controllerIndex == 0)
+				direction = gamePad.Dpad;
+			else if (controllerIndex == 1)
 			{
-				direction += new Vector2(-1,0);
-				sprite.scale = new Vector2(-1,1);
-			}
-			if((gamePadData.Buttons & GamePadButtons.Right) != 0)
-			{
-				direction += new Vector2(1,0);
-				sprite.scale = new Vector2(1,1);	
-			}
-			if((gamePadData.Buttons & GamePadButtons.Up) != 0)
-			{
-				direction += new Vector2(0,1);	
-			}
-			if((gamePadData.Buttons & GamePadButtons.Down) != 0)
-			{
-				direction += new Vector2(0,-1);	
+				if (gamePad.Triangle.On) direction += new Vector2(0, 1);
+				if (gamePad.Cross.On) direction -= new Vector2(0, 1);
+				if (gamePad.Square.On) direction -= new Vector2(1, 0);
+				if (gamePad.Circle.On) direction += new Vector2(1, 0);
 			}
 			
-			direction.Normalize();
+			if (direction != Vector2.Zero) direction.Normalize();
 			
 			sprite.position += direction * speed;
-			Move(deltaTime);
-			
 			
 			if(isJumping)
 			{
@@ -162,7 +151,6 @@ namespace StealthOfTomorrow
 				lives--;
 				if(lives < 0)
 					lives = 4;
-				
 			}
 			if ( Input2.GamePad0.Cross.Press )
 			{
@@ -174,50 +162,6 @@ namespace StealthOfTomorrow
 				Attack();
 				AnimationManager.Instance.SetSpriteState(sprite.name, "Kick");
 			}
-			
-
-		}
-		
-		private void Move(float deltaTime)
-		{
-			int speed = 200;
-			
-			if(!isJumping)
-			{
-				if((gamePadData.Buttons & GamePadButtons.Left) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
-				{
-					Jump("Left",deltaTime,speed);
-				}
-				else if((gamePadData.Buttons & GamePadButtons.Right) != 0 && (gamePadData.Buttons & GamePadButtons.Up) != 0)
-				{
-					Jump("Right",deltaTime,speed);
-				}
-				
-				else if((gamePadData.Buttons & GamePadButtons.Left) != 0 )
-				{
-				
-				sprite.position += new Vector2(-1 * speed * deltaTime,0);
-				//sprite.Scale = new Vector2(-1,1);	
-					
-				}
-				else if((gamePadData.Buttons & GamePadButtons.Right) != 0)
-				{
-			
-				sprite.position += new Vector2(1 * speed * deltaTime,0);
-					//sprite.Scale = new Vector2(1,1);	
-				}
-				else if((gamePadData.Buttons & GamePadButtons.Up) != 0)
-				{
-					
-				sprite.position += new Vector2(0,1 * speed * deltaTime);	
-				}
-				else if((gamePadData.Buttons & GamePadButtons.Down) != 0)
-				{
-					
-				sprite.position += new Vector2(0,-1 * speed * deltaTime);	
-				}
-			}
-			
 		}
 		
 		private void Jump(string dir,float deltaTime,int speed)

@@ -85,10 +85,10 @@ namespace StealthOfTomorrow
 			AnimationManager.Instance.ActivateAnimation("testChar3", this);
 			
 			//Player Code
-			player1 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar"), baseLevel.StartingPositions[0],0,4,100,100);
-			player2 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar1"), baseLevel.StartingPositions[1],0,3,70,80);
-			player3 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar2"), baseLevel.StartingPositions[2],0,2,50,60);
-			player4 = new Character(this,AnimationManager.Instance.GetAnimatedSprite("testChar3"), baseLevel.StartingPositions[3],0,1,30,40);
+			player1 = new Character(this, AnimationManager.Instance.GetAnimatedSprite("testChar"),  baseLevel.StartingPositions[0], 0, 4, 100, 100);
+			player2 = new Character(this, AnimationManager.Instance.GetAnimatedSprite("testChar1"), baseLevel.StartingPositions[1], 1, 3, 70,  80);
+			player3 = new Character(this, AnimationManager.Instance.GetAnimatedSprite("testChar2"), baseLevel.StartingPositions[2], 2, 2, 50,  60);
+			player4 = new Character(this, AnimationManager.Instance.GetAnimatedSprite("testChar3"), baseLevel.StartingPositions[3], 3, 1, 30,  40);
 			
 			List<Character> players = new List<Character> {player1 , player2, player3, player4};
 			
