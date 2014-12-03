@@ -114,7 +114,7 @@ namespace StealthOfTomorrow
 				{
 					transitionStarted = true;
 					Touch.GetData(0).Clear();	
-					SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+					SceneManager.Instance.SendSceneToFront(new CharacterSelectScreen(new ImageColor(255, 0, 0, 255), 38), SceneManager.SceneTransitionType.CrossFade, 3.0f);
 				}	
 				else if(screenx >= 568 && screenx <= 793
 		   			&& screenY >= 227 && screenY <= 303)		
