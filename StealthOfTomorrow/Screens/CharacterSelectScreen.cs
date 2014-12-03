@@ -13,15 +13,13 @@ namespace StealthOfTomorrow
 {
 	public class CharacterSelectScreen : Scene
 	{
-		private string titleText = "Character Select";
+		private string titleText = "Character Select - Press X to start";
 		private Texture2D m_titleTextTex;
 		private TextureInfo m_titleTextTexInfo;
 		private SpriteUV m_titleTextSprite;
 		
 		private TextureInfo m_selectBoxTexInfo;
 		private SpriteUV m_selectBoxSprite;
-		
-		private Vector2 m_selectBoxPosition;
 		
 		public CharacterSelectScreen(ImageColor textcolor, int textSize)
 		{
@@ -30,7 +28,6 @@ namespace StealthOfTomorrow
 			textImage.Decode();
 			
 			Font font = new Font(FontAlias.System, textSize,FontStyle.Regular);
-			m_selectBoxPosition = new Vector2(screenSize.X / 2, screenSize.Y / 2);
 			
 			textImage.DrawText(titleText, textcolor, font, new ImagePosition((screenSize.Width - font.GetTextWidth(titleText)) / 2, screenSize.Height / 12 - textSize / 2));
 			
@@ -68,7 +65,41 @@ namespace StealthOfTomorrow
 		{
 			base.Update (dt);
 			
-			m_selectBoxSprite.Position = GetTouchPos();
+			bool alreadyInput = false;
+			
+			GamePadData gpadData = GamePad.GetData(0);
+			
+			if(Input2.GamePad0.Cross.Press)
+			{
+				Touch.GetData(0).Clear();
+				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+			}
+			
+			if(Input2.GamePad0.Up.Press)
+			{
+				m_selectBoxSprite.Position = new Vector2(m_selectBoxSprite.Position.X, m_selectBoxSprite.Position.Y + m_selectBoxSprite.Quad.S.Y);
+				alreadyInput = true;
+			}
+			
+			if(Input2.GamePad0.Left.Press)
+			{
+				m_selectBoxSprite.Position = new Vector2(m_selectBoxSprite.Position.X - m_selectBoxSprite.Quad.S.X, m_selectBoxSprite.Position.Y);
+				alreadyInput = true;
+			}
+			
+			if(Input2.GamePad0.Down.Press)
+			{
+				m_selectBoxSprite.Position = new Vector2(m_selectBoxSprite.Position.X, m_selectBoxSprite.Position.Y - m_selectBoxSprite.Quad.S.Y);
+				alreadyInput = true;
+			}
+			
+			if(Input2.GamePad0.Right.Press)
+			{
+				m_selectBoxSprite.Position = new Vector2(m_selectBoxSprite.Position.X + m_selectBoxSprite.Quad.S.X, m_selectBoxSprite.Position.Y);
+				alreadyInput = true;
+			}
+			
+			//if(!alreadyInput && Input2.Touch00.Press) m_selectBoxSprite.Position = Input2.Touch00.Pos;
 		}
 		
 		~CharacterSelectScreen()
