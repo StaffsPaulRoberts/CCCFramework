@@ -82,6 +82,7 @@
     <Content Include="Assets\base_platform_main.png" />
     <Content Include="Assets\base_platform_side.png" />
     <Content Include="Assets\Animations\testChar.png" />
+    <Content Include="Assets\Backgrounds\MainMenu.png" />
     <Content Include="Assets\charSelectBox.png" />
   </ItemGroup>
 </Project>

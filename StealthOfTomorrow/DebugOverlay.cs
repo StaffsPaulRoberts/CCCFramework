@@ -5,6 +5,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.Core.Imaging;
 using Sce.PlayStation.Core.Input;
 
+
 namespace StealthOfTomorrow
 {
 	public class DebugOverlay : Scene
@@ -26,6 +27,10 @@ namespace StealthOfTomorrow
 		Font font;		
 		FontMap debugFont;
 		#endregion
+		
+		private SpriteUV 		bgSprite;
+		private TextureInfo		bgTextInfo;
+		
 		private float elapsedTime = 0;
 		
 		private bool transitionStarted;
@@ -71,11 +76,17 @@ namespace StealthOfTomorrow
 			lblBottomRight.Position = new Vector2(screenWidth - font.GetTextWidth(lblBottomRight.Text) - 10, 0);
 			#endregion
 			
+			bgTextInfo = new TextureInfo("/Application/Assets/Backgrounds/MainMenu.png");
+			bgSprite = new SpriteUV(bgTextInfo);
+			bgSprite.Quad.S = bgTextInfo.TextureSizef;
+			bgSprite.Position = new Vector2(0f,0f);
+		
 			#region Add labels to scene (Debug Overlay)
 			this.AddChild(lblTopLeft);
 			this.AddChild(lblTopRight);
 			this.AddChild(lblBottomLeft);
 			this.AddChild(lblBottomRight);
+			this.AddChild(bgSprite);
 			#endregion
 			
 			
@@ -88,12 +99,38 @@ namespace StealthOfTomorrow
 		{
 			base.Update (dt);
 			
-			//var touches = Touch.GetData(0);
-			if(Input2.GamePad0.Start.Press && !transitionStarted || Touch.GetData(0).Count > 0 && !transitionStarted)
+			var touches = Touch.GetData(0);
+			//Input2.GamePad0.Start.Press && !transitionStarted || 
+			if(touches.Count > 0 && !transitionStarted && touches[0].Status == TouchStatus.Down)
 			{
-				transitionStarted = true;
-				Touch.GetData(0).Clear();
-				SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+				float screenheight = Director.Instance.GL.Context.GetViewport().Height;
+				float screenwidth = Director.Instance.GL.Context.GetViewport().Width;
+				float screenx = (touches[0].X +0.5f) * screenwidth;
+				float screenY = (touches[0].Y +0.5f) * screenheight;
+				
+
+				if(screenx >= 169 && screenx <= 391
+		   			&& screenY >= 227 && screenY <= 303)		
+				{
+					transitionStarted = true;
+					Touch.GetData(0).Clear();	
+					SceneManager.Instance.SendSceneToFront(new GameScene("Game", new ImageColor(255, 0, 0, 255), 220), SceneManager.SceneTransitionType.CrossFade, 3.0f);
+				}	
+				else if(screenx >= 568 && screenx <= 793
+		   			&& screenY >= 227 && screenY <= 303)		
+				{
+					Console.WriteLine("Options");
+				}	
+				else if(screenx >= 370 && screenx <= 593
+		   			&& screenY >= 397 && screenY <= 474)		
+				{
+					
+					AppMain.GAMERUNNING = false;
+				}	
+				else
+					Console.WriteLine(screenx + " " + screenY );
+
+				
 				//SceneManager.Instance.SendSceneToFront(new FrontEnd(), SceneManager.SceneTransitionType.CrossFade, 3.0f);
 			}
 		}

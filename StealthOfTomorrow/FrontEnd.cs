@@ -26,7 +26,8 @@ namespace StealthOfTomorrow
 			sprite= new SpriteUV(textureInfo);
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(50.0f, 0.0f);
-			sprite.Color = new Vector4(1f,1f,1f,0f);
+			//sprite.Color = new Vector4(1f,1f,1f,1f);
+			
 			this.AddChild(sprite);
 			
 		
