@@ -13,12 +13,12 @@ namespace StealthOfTomorrow
 {
 	public class AppMain
 	{
-		
+		public static bool GAMERUNNING = true;
 		public static void Main (string[] args)
 		{
 			Initialize();
 
-			while (true) {
+			while (GAMERUNNING) {
 				SystemEvents.CheckEvents ();	// We check system events (such as pressing PS button, pressing power button to sleep, major and unknown crash!!)
 				
 				Director.Instance.Update();
@@ -45,6 +45,7 @@ namespace StealthOfTomorrow
 			
 			Director.Instance.RunWithScene(scnDebug, true);	// Tell the Director to run the scene
 		}
+		
 		
 		/*********** No need for these methods, Director takes care of it for us now *************************
 		public static void Update ()
