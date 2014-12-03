@@ -40,10 +40,8 @@
   <ItemGroup>
     <Compile Include="AppMain.cs" />
     <Compile Include="DebugOverlay.cs" />
-    <Compile Include="SplashScreen.cs" />
     <Compile Include="Managers\FontManager.cs" />
     <Compile Include="Managers\SceneManager.cs" />
-    <Compile Include="GameScene.cs" />
     <Compile Include="GameHUD.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Managers\AnimationManager.cs" />
@@ -51,10 +49,13 @@
     <Compile Include="Managers\AudioManager.cs" />
     <Compile Include="BaseLevel.cs" />
     <Compile Include="FrontEnd.cs" />
+    <Compile Include="Screens\SplashScreen.cs" />
+    <Compile Include="Screens\GameScene.cs" />
+    <Compile Include="Screens\CharacterSelectScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ShaderProgram Include="shaders\Simple.fcg" />
-    <ShaderProgram Include="shaders\Simple.vcg" />
+    <ShaderProgram Include="Shaders\Simple.fcg" />
+    <ShaderProgram Include="Shaders\Simple.vcg" />
   </ItemGroup>
   <ItemGroup>
     <PsmMetadata Include="app.xml" />
@@ -65,6 +66,7 @@
     <Folder Include="Assets\" />
     <Folder Include="Assets\Animations\" />
     <Folder Include="Assets\Backgrounds\" />
+    <Folder Include="Screens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="saltire.jpg" />
@@ -80,5 +82,6 @@
     <Content Include="Assets\base_platform_main.png" />
     <Content Include="Assets\base_platform_side.png" />
     <Content Include="Assets\Animations\testChar.png" />
+    <Content Include="Assets\charSelectBox.png" />
   </ItemGroup>
 </Project>

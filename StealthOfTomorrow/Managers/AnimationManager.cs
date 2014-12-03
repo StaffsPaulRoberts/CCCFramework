@@ -33,9 +33,6 @@ namespace StealthOfTomorrow
 			TextureInfo info = new TextureInfo(texture, numTiles);
 			SpriteTile tile = new SpriteTile(info);
 			
-			texture = new Texture2D(filename, false);
-			info = new TextureInfo(texture, numTiles);
-			tile = new SpriteTile(info);
 			tile.Quad.S = new Vector2(info.TextureSizef.X / numTiles.X, info.TextureSizef.Y / numTiles.Y);
 			tile.CenterSprite();
 		
