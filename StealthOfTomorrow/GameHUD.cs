@@ -83,7 +83,6 @@ namespace StealthOfTomorrow
 			thumb.Image = thumbImage;
 			thumb.ImageScaleType = ImageScaleType.AspectInside;
 			thumb.SetSize(thumbImage.Width, thumbImage.Height);
-			yPos += thumb.Height;
 			xPos -= thumb.Width/2;
 			thumb.SetPosition(xPos, yPos);
 			this.AddChildLast(thumb);
@@ -138,8 +137,8 @@ namespace StealthOfTomorrow
 			horizontalFrameWidth = thumb.Width + livesSize + verticalFrameWidth;
 			float horizontalFrameHeight = (horizontalFrameWidth / healthImage.Width) * healthImage.Height;
 			
-			// Move down the frame height, and left the thumbnail and lives frame width
-			yPos -= horizontalFrameHeight;
+			// Move down the thumb height, and left the thumbnail and lives frame width
+			yPos += thumb.Height;
 			xPos -= thumb.Width + livesSize;
 			// Health bar frame
 			ImageBox healthFrame = new ImageBox();
